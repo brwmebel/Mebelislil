@@ -6,7 +6,6 @@
     <title>Мебель и Стиль | Профессиональная комплектация квартир</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ========== ВСЕ СТИЛИ ОСТАЮТСЯ БЕЗ ИЗМЕНЕНИЙ ========== */
         :root {
             --primary: #1a3b2e;
             --primary-light: #2a5a45;
@@ -21,7 +20,7 @@
             --bg-dark: #121212;
             --bg-card-dark: #1e1e1e;
             --text-dark: #e0e0e0;
-            --text-secondary-dark: #aaaaaa;
+            --text-secondary-dark: #cccccc;
             --border-dark: #333333;
         }
 
@@ -313,11 +312,19 @@
             margin-bottom: 20px;
         }
 
+        body.dark-theme .hero-content .hero-subtitle {
+            color: var(--text-secondary-dark);
+        }
+
         .hero-content .hero-text {
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary);
             margin: 30px 0 20px;
+        }
+
+        body.dark-theme .hero-content .hero-text {
+            color: var(--accent);
         }
 
         .carousel-section {
@@ -378,6 +385,7 @@
             object-fit: cover;
             display: block;
             border-radius: 8px;
+            loading: lazy;
         }
 
         .carousel-button {
@@ -504,6 +512,10 @@
             margin-bottom: 20px;
         }
 
+        body.dark-theme .about-text p {
+            color: var(--text-secondary-dark);
+        }
+
         .styles {
             background-color: white;
         }
@@ -539,6 +551,10 @@
             color: var(--gray);
             cursor: pointer;
             transition: var(--transition);
+        }
+
+        body.dark-theme .style-tab {
+            color: var(--text-secondary-dark);
         }
 
         .style-tab.active {
@@ -590,10 +606,18 @@
             color: var(--dark);
         }
 
+        body.dark-theme .style-header p {
+            color: var(--text-secondary-dark);
+        }
+
         .style-desc {
             color: var(--dark);
             line-height: 1.7;
             margin-bottom: 25px;
+        }
+
+        body.dark-theme .style-desc {
+            color: var(--text-secondary-dark);
         }
 
         .style-features {
@@ -611,6 +635,10 @@
 
         .style-feature span {
             color: var(--dark);
+        }
+
+        body.dark-theme .style-feature span {
+            color: var(--text-secondary-dark);
         }
 
         .steps {
@@ -665,6 +693,10 @@
             margin-bottom: 15px;
         }
 
+        body.dark-theme .steps-note p {
+            color: var(--text-secondary-dark);
+        }
+
         .steps-content .step-intro {
             color: var(--dark);
             font-size: 1.1rem;
@@ -672,8 +704,8 @@
             margin-bottom: 30px;
         }
 
-        .steps-content .step-item {
-            margin-bottom: 25px;
+        body.dark-theme .steps-content .step-intro {
+            color: var(--text-secondary-dark);
         }
 
         .steps-content .step-item h3 {
@@ -683,10 +715,18 @@
             margin-bottom: 8px;
         }
 
+        body.dark-theme .steps-content .step-item h3 {
+            color: var(--accent);
+        }
+
         .steps-content .step-item p {
             color: var(--gray);
             font-size: 1rem;
             line-height: 1.6;
+        }
+
+        body.dark-theme .steps-content .step-item p {
+            color: var(--text-secondary-dark);
         }
 
         .steps-btn {
@@ -724,6 +764,10 @@
             color: var(--gray);
             cursor: pointer;
             transition: var(--transition);
+        }
+
+        body.dark-theme .package-tab {
+            color: var(--text-secondary-dark);
         }
 
         .package-tab.active {
@@ -796,6 +840,10 @@
             display: inline-block;
         }
 
+        body.dark-theme .feature-section h4 {
+            color: var(--accent);
+        }
+
         .feature {
             display: flex;
             align-items: flex-start;
@@ -816,12 +864,21 @@
             color: var(--dark);
         }
 
+        body.dark-theme .feature span {
+            color: var(--text-secondary-dark);
+        }
+
         .feature-note {
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid var(--light-gray);
             font-size: 0.85rem;
             color: var(--gray);
+        }
+
+        body.dark-theme .feature-note {
+            color: var(--text-secondary-dark);
+            border-top-color: var(--border-dark);
         }
 
         .portfolio {
@@ -862,6 +919,12 @@
             color: white;
         }
 
+        body.dark-theme .filter-btn.active,
+        body.dark-theme .filter-btn:hover {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+        }
+
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -896,6 +959,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
+            loading: lazy;
         }
 
         .portfolio-item:hover .portfolio-img img {
@@ -921,6 +985,10 @@
             margin-bottom: 15px;
         }
 
+        body.dark-theme .portfolio-info p {
+            color: var(--text-secondary-dark);
+        }
+
         .portfolio-tags {
             display: flex;
             flex-wrap: wrap;
@@ -935,7 +1003,11 @@
             color: var(--primary);
         }
 
-        /* НОВЫЙ СТИЛЬ ДЛЯ ГАЛЕРЕИ - MASONRY GRID */
+        body.dark-theme .tag {
+            background-color: rgba(212, 182, 138, 0.1);
+            color: var(--accent);
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -987,6 +1059,10 @@
             padding-right: 40px;
         }
 
+        body.dark-theme .modal-title {
+            color: var(--accent);
+        }
+
         .modal-desc {
             color: var(--gray);
             margin-bottom: 30px;
@@ -994,7 +1070,11 @@
             border-bottom: 1px solid var(--light-gray);
         }
 
-        /* ГАЛЕРЕЯ С MASONRY ЭФФЕКТОМ */
+        body.dark-theme .modal-desc {
+            color: var(--text-secondary-dark);
+            border-bottom-color: var(--border-dark);
+        }
+
         .modal-gallery {
             column-count: 3;
             column-gap: 20px;
@@ -1010,13 +1090,13 @@
             transition: transform 0.3s;
             cursor: pointer;
             display: block;
+            loading: lazy;
         }
 
         .modal-gallery img:hover {
             transform: scale(1.02);
         }
 
-        /* Адаптивность masonry */
         @media (max-width: 992px) {
             .modal-gallery {
                 column-count: 2;
@@ -1104,10 +1184,18 @@
             color: var(--primary);
         }
 
+        body.dark-theme .partner-name-static {
+            color: var(--accent);
+        }
+
         .partner-desc-static {
             color: var(--gray);
             font-size: 0.85rem;
             line-height: 1.4;
+        }
+
+        body.dark-theme .partner-desc-static {
+            color: var(--text-secondary-dark);
         }
 
         @keyframes scrollPartners {
@@ -1390,7 +1478,7 @@
         ];
         const track = document.getElementById('carouselTrack'), dotsContainer = document.getElementById('carouselDots'), wrapper = document.getElementById('carouselWrapper');
         const prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
-        carouselImages.forEach((img, idx) => { let slide = document.createElement('div'); slide.className = 'carousel-slide'; let imgEl = document.createElement('img'); imgEl.src = img.src; imgEl.alt = img.alt; imgEl.onerror = function() { this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото '+(idx+1)+'</text></svg>'; }; slide.appendChild(imgEl); track.appendChild(slide); });
+        carouselImages.forEach((img, idx) => { let slide = document.createElement('div'); slide.className = 'carousel-slide'; let imgEl = document.createElement('img'); imgEl.src = img.src; imgEl.alt = img.alt; imgEl.loading = 'lazy'; imgEl.onerror = function() { this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото '+(idx+1)+'</text></svg>'; }; slide.appendChild(imgEl); track.appendChild(slide); });
         carouselImages.forEach((_, idx) => { let dot = document.createElement('span'); dot.className = 'dot' + (idx===0?' active':''); dot.setAttribute('data-index',idx); dotsContainer.appendChild(dot); });
         let slides = document.querySelectorAll('.carousel-slide'), dots = document.querySelectorAll('.dot'), currentIndex = 0, isDragging = false, startX = 0, dragStartOffset = 0;
         function updateActiveSlide() { slides.forEach((s,i)=>i===currentIndex?s.classList.add('active'):s.classList.remove('active')); dots.forEach((d,i)=>d.classList.toggle('active',i===currentIndex)); }
@@ -1417,7 +1505,7 @@
             <div class="package-card one-room-package" style="display:none;border:2px solid var(--accent);"><div class="package-header" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><h3 class="package-name">Комфорт</h3><div class="package-price">от 525 000 ₽</div><a href="https://vk.com/im/convo/-96810994?entrypoint=community_page&tab=all" class="btn" style="width:100%;background:var(--accent);color:var(--dark);" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект прямой кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка встроенная/наклонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный (цвет модель на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки (модель на выбор)</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Тумба под тв / тумба комбинированная (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div><div class="feature"><i class="fas fa-check"></i><span>Диван раскладной ортопедический/кровать/кровать мягкая + матрас</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф трехстворчатый или 4х створчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>2 прикроватные тумбы</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая комбинированная/шкаф купе</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>`;
             document.querySelectorAll('.package-tab').forEach(t=>t.addEventListener('click',function(){ document.querySelectorAll('.package-tab').forEach(tt=>tt.classList.remove('active')); this.classList.add('active'); let isStudio=this.dataset.tab==='studio'; document.querySelectorAll('.studio-package').forEach(p=>p.style.display=isStudio?'block':'none'); document.querySelectorAll('.one-room-package').forEach(p=>p.style.display=isStudio?'none':'block'); })); }
 
-        // ПРОЕКТЫ С РЕАЛЬНЫМИ ФОТО
+        // ПРОЕКТЫ С РЕАЛЬНЫМИ ФОТО (поменял местами галереи)
         function getGallery(folder, start, end, ext) {
             let photos = [];
             for (let i = start; i <= end; i++) {
@@ -1429,10 +1517,11 @@
         const projectsData = [
             {
                 id: 1,
-                title: "Студия ЖК «Универ Сити»",
-                description: "Комплектация квартиры 26,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.",
-                tags: ["26,2 м²", "Студия", "Полная меблировка"],
+                title: "Студия ЖК «Сенат»",
+                description: "Комплектация квартиры 24,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.",
+                tags: ["24,2 м²", "Студия", "Полная меблировка"],
                 category: "full",
+                // РАНЬШЕ БЫЛО: студия сенат, СЕЙЧАС: студия универ сити
                 gallery: getGallery("студия универ сити", 200, 239, "jpg")
             },
             {
@@ -1445,10 +1534,11 @@
             },
             {
                 id: 3,
-                title: "Студия ЖК «Сенат»",
-                description: "Комплектация квартиры 24,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.",
-                tags: ["24,2 м²", "Студия", "Полная меблировка"],
+                title: "Студия ЖК «Универ Сити»",
+                description: "Комплектация квартиры 26,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.",
+                tags: ["26,2 м²", "Студия", "Полная меблировка"],
                 category: "full",
+                // РАНЬШЕ БЫЛО: студия универ сити, СЕЙЧАС: студия сенат
                 gallery: (() => {
                     let photos = [];
                     for (let i = 100; i <= 119; i++) {
@@ -1494,7 +1584,7 @@
                 item.className = 'portfolio-item';
                 const firstImg = proj.gallery[0];
                 item.innerHTML = `
-                    <div class="portfolio-img"><img src="${firstImg}" alt="${proj.title}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 100 100\'><rect width=\'100%\' height=\'100%\' fill=\'%231a3b2e\'/><text x=\'50\' y=\'50\' font-size=\'14\' text-anchor=\'middle\' dy=\'.3em\' fill=\'white\'>${proj.title}</text></svg>'"></div>
+                    <div class="portfolio-img"><img src="${firstImg}" alt="${proj.title}" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 100 100\'><rect width=\'100%\' height=\'100%\' fill=\'%231a3b2e\'/><text x=\'50\' y=\'50\' font-size=\'14\' text-anchor=\'middle\' dy=\'.3em\' fill=\'white\'>${proj.title}</text></svg>'"></div>
                     <div class="portfolio-info">
                         <h3>${proj.title}</h3>
                         <p>${proj.description}</p>
