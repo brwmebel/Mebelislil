@@ -516,6 +516,7 @@
             color: var(--text-secondary-dark);
         }
 
+        /* Стили мебели (теперь ниже) */
         .styles {
             background-color: white;
         }
@@ -641,6 +642,7 @@
             color: var(--text-secondary-dark);
         }
 
+        /* Этапы работы */
         .steps {
             background-color: white;
         }
@@ -734,6 +736,7 @@
             margin-top: 20px;
         }
 
+        /* Пакеты (теперь выше стилей) */
         .packages {
             background-color: var(--light);
         }
@@ -881,6 +884,7 @@
             border-top-color: var(--border-dark);
         }
 
+        /* НАШИ РАБОТЫ */
         .portfolio {
             background-color: white;
         }
@@ -1075,9 +1079,11 @@
             border-bottom-color: var(--border-dark);
         }
 
+        /* ГАЛЕРЕЯ С ЦЕНТРИРОВАНИЕМ ВЕРТИКАЛЬНЫХ ФОТО */
         .modal-gallery {
             column-count: 3;
             column-gap: 20px;
+            column-fill: balance;
         }
 
         .modal-gallery img {
@@ -1091,6 +1097,8 @@
             cursor: pointer;
             display: block;
             loading: lazy;
+            object-fit: contain;
+            object-position: center;
         }
 
         .modal-gallery img:hover {
@@ -1356,8 +1364,9 @@
         <div class="container header-container">
             <a href="#home" class="logo-mini"><div class="logo-main">МиС</div><div class="logo-sub">Мебель и Стиль</div></a>
             <ul class="nav">
-                <li><a href="#about">О нас</a></li><li><a href="#styles">Стили</a></li><li><a href="#steps">Этапы</a></li>
+                <li><a href="#about">О нас</a></li><li><a href="#steps">Этапы</a></li>
                 <li><a href="#packages">Пакеты</a></li><li><a href="#portfolio">Наши работы</a></li>
+                <li><a href="#styles">Стили</a></li>
                 <li><a href="#partners">Партнеры</a></li><li><a href="#contact">Контакты</a></li>
             </ul>
             <div class="header-right">
@@ -1394,7 +1403,37 @@
         </div>
     </div></div></section>
 
-    <!-- Стили мебели -->
+    <!-- Этапы работы -->
+    <section class="steps" id="steps"><div class="container"><div class="section-title"><h2>Этапы взаимодействия</h2><p>Чёткий процесс, который гарантирует результат и соблюдение сроков.</p></div>
+    <div class="steps-container"><div class="steps-content"><div class="step-intro">Меблировка под ключ — это современный подход к созданию интерьера, который позволяет сэкономить время и силы, доверив все этапы профессионалам. Одним из главных преимуществ этого решения является комплексный подход.</div>
+    <div class="step-item"><h3>Знакомство</h3><p>Анализ потребностей и особенностей помещения.</p></div>
+    <div class="step-item"><h3>Разработка концепции и дизайн-проекта</h3><p>На этом этапе создается визуализация будущего интерьера, что позволяет заранее увидеть, как будет выглядеть пространство. Включает в себя 3D проект, подбор мебели, техники и материалов, а также расстановку в вашу планировку по чистовому обмеру квартиры.</p></div>
+    <div class="step-item"><h3>Заключение договора</h3><p>Cогласование спецификации по ассортименту, подписание договора, предоплата 50% от стоимости проекта.</p></div>
+    <div class="step-item"><h3>Реализация проекта</h3><p>Изготовление, доставка и сборка мебели, оснащение техникой и ее подключение. Организация пространства, создание единого стилевого решения, финальное оформление и декорирование.</p></div>
+    <div class="step-item"><h3>Сдача объекта</h3><p>Приемка объекта, подписание закрывающих документов, передача ключей.</p></div></div>
+    <div class="steps-right"><div class="steps-image"><img src="image/IMG_8212.jpg" alt="Этапы работы"></div>
+    <div class="steps-note"><p>В среднем комплектация студии или 1-комнатной квартиры «под ключ» занимает 4 недели с учетом того, что все позиции мы выбираем из наличия в магазинах. В случае индивидуальных запросов на мебель или кухню на заказ сроки могут быть увеличены.</p>
+    <p>Все этапы согласовываем в удобном для Вас формате лично или дистанционно через любой комфортный мессенджер. Мы регулярно присылаем фото и видео отчеты и всегда находимся на связи.</p></div></div></div>
+    <div class="steps-btn"><a href="https://vk.com/im/convo/-96810994?entrypoint=community_page&tab=all" class="btn" target="_blank">Заказать</a></div></div></section>
+
+    <!-- Пакеты (теперь выше стилей) -->
+    <section class="packages" id="packages"><div class="container"><div class="section-title"><h2>Пакетные предложения</h2><p>Готовые решения для квартир с отделкой. Стоимость указана за базовую комплектацию.</p></div>
+    <div class="package-tabs"><button class="package-tab active" data-tab="studio">Студия</button><button class="package-tab" data-tab="1-room">1-комнатная</button></div>
+    <div class="packages-grid" id="packagesGrid"></div></div></section>
+
+    <!-- НАШИ РАБОТЫ -->
+    <section class="portfolio" id="portfolio"><div class="container"><div class="section-title"><h2>Наши работы</h2><p>Реализованные проекты по меблировке квартир под ключ</p></div>
+    <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">Все работы</button>
+        <button class="filter-btn" data-filter="full">Полная меблировка</button>
+        <button class="filter-btn" data-filter="kitchen">Кухни</button>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid"></div></div></section>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="galleryModal"><div class="modal-content"><span class="modal-close" id="modalClose">&times;</span><h3 class="modal-title" id="modalTitle"></h3><p class="modal-desc" id="modalDesc"></p><div class="modal-gallery" id="modalGallery"></div></div></div>
+
+    <!-- Стили мебели (теперь ниже) -->
     <section class="styles" id="styles"><div class="container"><div class="section-title"><h2>Стилевые решения</h2><p>Единый стиль мебели позволяет создать однородное и уютное пространство, где все детали будут идеально сочетаться друг с другом.</p></div>
     <div class="styles-container"><div class="style-tabs">
         <button class="style-tab active" data-style="scandinavian">Скандинавский</button>
@@ -1416,33 +1455,6 @@
     <div class="style-features"><div class="style-feature"><i class="fas fa-check" style="color:#b88b8b;"></i><span>Натуральные материалы (дерево, мрамор)</span></div><div class="style-feature"><i class="fas fa-check" style="color:#b88b8b;"></i><span>Элегантная цветовая палитра</span></div><div class="style-feature"><i class="fas fa-check" style="color:#b88b8b;"></i><span>Качественная фурнитура</span></div><div class="style-feature"><i class="fas fa-check" style="color:#b88b8b;"></i><span>Декоративные элементы</span></div></div></div>
     </div></div></section>
 
-    <!-- Этапы работы -->
-    <section class="steps" id="steps"><div class="container"><div class="section-title"><h2>Этапы взаимодействия</h2><p>Чёткий процесс, который гарантирует результат и соблюдение сроков.</p></div>
-    <div class="steps-container"><div class="steps-content"><div class="step-intro">Меблировка под ключ — это современный подход к созданию интерьера, который позволяет сэкономить время и силы, доверив все этапы профессионалам. Одним из главных преимуществ этого решения является комплексный подход.</div>
-    <div class="step-item"><h3>Знакомство</h3><p>Анализ потребностей и особенностей помещения.</p></div>
-    <div class="step-item"><h3>Разработка концепции и дизайн-проекта</h3><p>На этом этапе создается визуализация будущего интерьера, что позволяет заранее увидеть, как будет выглядеть пространство. Включает в себя 3D проект, подбор мебели, техники и материалов, а также расстановку в вашу планировку по чистовому обмеру квартиры.</p></div>
-    <div class="step-item"><h3>Заключение договора</h3><p>Cогласование спецификации по ассортименту, подписание договора, предоплата 50% от стоимости проекта.</p></div>
-    <div class="step-item"><h3>Реализация проекта</h3><p>Изготовление, доставка и сборка мебели, оснащение техникой и ее подключение. Организация пространства, создание единого стилевого решения, финальное оформление и декорирование.</p></div>
-    <div class="step-item"><h3>Сдача объекта</h3><p>Приемка объекта, подписание закрывающих документов, передача ключей.</p></div></div>
-    <div class="steps-right"><div class="steps-image"><img src="image/IMG_8212.jpg" alt="Этапы работы"></div>
-    <div class="steps-note"><p>В среднем комплектация студии или 1-комнатной квартиры «под ключ» занимает 4 недели с учетом того, что все позиции мы выбираем из наличия в магазинах. В случае индивидуальных запросов на мебель или кухню на заказ сроки могут быть увеличены.</p>
-    <p>Все этапы согласовываем в удобном для Вас формате лично или дистанционно через любой комфортный мессенджер. Мы регулярно присылаем фото и видео отчеты и всегда находимся на связи.</p></div></div></div>
-    <div class="steps-btn"><a href="https://vk.com/im/convo/-96810994?entrypoint=community_page&tab=all" class="btn" target="_blank">Заказать</a></div></div></section>
-
-    <!-- Пакеты -->
-    <section class="packages" id="packages"><div class="container"><div class="section-title"><h2>Пакетные предложения</h2><p>Готовые решения для квартир с отделкой. Стоимость указана за базовую комплектацию.</p></div>
-    <div class="package-tabs"><button class="package-tab active" data-tab="studio">Студия</button><button class="package-tab" data-tab="1-room">1-комнатная</button></div>
-    <div class="packages-grid" id="packagesGrid"></div></div></section>
-
-    <!-- НАШИ РАБОТЫ -->
-    <section class="portfolio" id="portfolio"><div class="container"><div class="section-title"><h2>Наши работы</h2><p>Реализованные проекты по меблировке квартир под ключ</p></div>
-    <div class="portfolio-filters"><button class="filter-btn active" data-filter="all">Все работы</button><button class="filter-btn" data-filter="full">Полная меблировка</button>
-    <button class="filter-btn" data-filter="kitchen">Кухни</button><button class="filter-btn" data-filter="wardrobe">Шкафы под заказ</button><button class="filter-btn" data-filter="bedroom">Спальни</button></div>
-    <div class="portfolio-grid" id="portfolioGrid"></div></div></section>
-
-    <!-- Модальное окно -->
-    <div class="modal" id="galleryModal"><div class="modal-content"><span class="modal-close" id="modalClose">&times;</span><h3 class="modal-title" id="modalTitle"></h3><p class="modal-desc" id="modalDesc"></p><div class="modal-gallery" id="modalGallery"></div></div></div>
-
     <!-- Партнеры -->
     <section class="partners" id="partners"><div class="container"><div class="section-title"><h2>Наши партнеры</h2><p>Работаем с проверенными производителями мебели и материалов</p></div>
     <div class="partners-carousel-container"><div class="partners-carousel-track" id="partnersTrack"></div></div></div></section>
@@ -1457,7 +1469,7 @@
 
     <!-- Футер -->
     <footer><div class="container"><div class="footer-container"><div><div class="footer-logo">Мебель и Стиль</div><p>Профессиональная меблировка квартир под ключ. Работаем в Санкт-Петербурге с 2015 года.</p></div>
-    <div><h3 style="color:white;margin-bottom:20px;">Разделы</h3><ul><li><a href="#about">О нас</a></li><li><a href="#styles">Стили мебели</a></li><li><a href="#steps">Этапы</a></li><li><a href="#packages">Пакеты</a></li><li><a href="#portfolio">Наши работы</a></li><li><a href="#partners">Партнеры</a></li></ul></div>
+    <div><h3 style="color:white;margin-bottom:20px;">Разделы</h3><ul><li><a href="#about">О нас</a></li><li><a href="#steps">Этапы</a></li><li><a href="#packages">Пакеты</a></li><li><a href="#portfolio">Наши работы</a></li><li><a href="#styles">Стили мебели</a></li><li><a href="#partners">Партнеры</a></li></ul></div>
     <div><h3 style="color:white;margin-bottom:20px;">Контакты</h3><ul><li><i class="fas fa-phone" style="margin-right:10px;"></i>+7 (812) 925 88-56</li><li><i class="fas fa-envelope" style="margin-right:10px;"></i>brwmebelspb@yandex.ru</li><li><i class="fas fa-map-marker-alt" style="margin-right:10px;"></i>г. Кудрово, ул. Промышленная, д.3 к.3, этаж 2</li></ul></div></div><div class="copyright">© 2026 Мебель и Стиль. Все права защищены.</div></div></footer>
 
     <script>
@@ -1505,7 +1517,9 @@
             <div class="package-card one-room-package" style="display:none;border:2px solid var(--accent);"><div class="package-header" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><h3 class="package-name">Комфорт</h3><div class="package-price">от 525 000 ₽</div><a href="https://vk.com/im/convo/-96810994?entrypoint=community_page&tab=all" class="btn" style="width:100%;background:var(--accent);color:var(--dark);" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект прямой кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка встроенная/наклонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный (цвет модель на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки (модель на выбор)</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Тумба под тв / тумба комбинированная (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div><div class="feature"><i class="fas fa-check"></i><span>Диван раскладной ортопедический/кровать/кровать мягкая + матрас</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф трехстворчатый или 4х створчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>2 прикроватные тумбы</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая комбинированная/шкаф купе</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>`;
             document.querySelectorAll('.package-tab').forEach(t=>t.addEventListener('click',function(){ document.querySelectorAll('.package-tab').forEach(tt=>tt.classList.remove('active')); this.classList.add('active'); let isStudio=this.dataset.tab==='studio'; document.querySelectorAll('.studio-package').forEach(p=>p.style.display=isStudio?'block':'none'); document.querySelectorAll('.one-room-package').forEach(p=>p.style.display=isStudio?'none':'block'); })); }
 
-        // ПРОЕКТЫ С РЕАЛЬНЫМИ ФОТО (поменял местами галереи)
+        // ========== ПРОЕКТЫ ==========
+        
+        // 1. Полная меблировка (3 проекта)
         function getGallery(folder, start, end, ext) {
             let photos = [];
             for (let i = start; i <= end; i++) {
@@ -1514,14 +1528,13 @@
             return photos;
         }
 
-        const projectsData = [
+        const fullProjects = [
             {
                 id: 1,
                 title: "Студия ЖК «Сенат»",
                 description: "Комплектация квартиры 24,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.",
                 tags: ["24,2 м²", "Студия", "Полная меблировка"],
                 category: "full",
-                // РАНЬШЕ БЫЛО: студия сенат, СЕЙЧАС: студия универ сити
                 gallery: getGallery("студия универ сити", 200, 239, "jpg")
             },
             {
@@ -1538,7 +1551,6 @@
                 description: "Комплектация квартиры 26,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.",
                 tags: ["26,2 м²", "Студия", "Полная меблировка"],
                 category: "full",
-                // РАНЬШЕ БЫЛО: студия универ сити, СЕЙЧАС: студия сенат
                 gallery: (() => {
                     let photos = [];
                     for (let i = 100; i <= 119; i++) {
@@ -1549,6 +1561,41 @@
                 })()
             }
         ];
+
+        // 2. Кухни (2 проекта) — вертикальные фото центрируются
+        const kitchenProjects = [
+            {
+                id: 4,
+                title: "Проект 1",
+                description: "Современная кухня с островом. Фасады из МДФ, столешница из искусственного камня, встроенная техника.",
+                tags: ["Кухня", "Современный стиль", "Индивидуальный проект"],
+                category: "kitchen",
+                gallery: (() => {
+                    let photos = [];
+                    for (let i = 400; i <= 403; i++) {
+                        photos.push(`image/кухни/проект1/${i}.jpg`);
+                    }
+                    return photos;
+                })()
+            },
+            {
+                id: 5,
+                title: "Проект 2",
+                description: "Кухня в светлых тонах. Эргономичная планировка, системы хранения, современная бытовая техника.",
+                tags: ["Кухня", "Светлые тона", "Эргономика"],
+                category: "kitchen",
+                gallery: (() => {
+                    let photos = [];
+                    for (let i = 500; i <= 509; i++) {
+                        photos.push(`image/кухни/проект2/${i}.jpg`);
+                    }
+                    return photos;
+                })()
+            }
+        ];
+
+        // Объединяем проекты (только полная меблировка и кухни)
+        const allProjects = [...fullProjects, ...kitchenProjects];
 
         const portfolioGridEl = document.getElementById('portfolioGrid');
         const modal = document.getElementById('galleryModal');
@@ -1578,7 +1625,13 @@
 
         function renderPortfolio(filter = 'all') {
             portfolioGridEl.innerHTML = '';
-            const filtered = filter === 'all' ? projectsData : projectsData.filter(p => p.category === filter);
+            let filtered = [];
+            if (filter === 'all') {
+                filtered = allProjects;
+            } else {
+                filtered = allProjects.filter(p => p.category === filter);
+            }
+            
             filtered.forEach(proj => {
                 const item = document.createElement('div');
                 item.className = 'portfolio-item';
@@ -1596,6 +1649,7 @@
             });
             document.querySelectorAll('.portfolio-item').forEach((it, idx) => { it.style.opacity = '0'; it.style.transform = 'translateY(20px)'; setTimeout(() => { it.style.transition = 'opacity 0.3s, transform 0.3s'; it.style.opacity = '1'; it.style.transform = 'translateY(0)'; }, idx * 50); });
         }
+        
         document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', function() { document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); renderPortfolio(this.dataset.filter); }));
         renderPortfolio('all');
 
