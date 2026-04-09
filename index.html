@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мебель и Стиль | Профессиональная комплектация квартир</title>
+    <!-- Иконка сайта (favicon) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* --- ПОЛНЫЙ БЛОК СТИЛЕЙ ИЗ ПОСЛЕДНЕЙ ВЕРСИИ (С ЛОГОТИПОМ-КАРТИНКОЙ) --- */
         :root {
             --primary: #1a3b2e;
             --primary-light: #2a5a45;
@@ -136,7 +139,7 @@
         }
 
         header {
-            background-color: var(--primary);
+            background-color: #1a3b2e;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: fixed;
             width: 100%;
@@ -146,7 +149,7 @@
         }
 
         body.dark-theme header {
-            background: linear-gradient(135deg, #1a3b2e, #2a5a45);
+            background: linear-gradient(135deg, #0d2a1f, #1a3b2e);
         }
 
         .header-container {
@@ -157,28 +160,22 @@
         }
 
         .logo-mini {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: block;
             text-decoration: none;
             line-height: 1;
         }
 
-        .logo-mini .logo-main {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
+        /* Логотип с прозрачным фоном */
+        .logo-img {
+            height: 70px;
+            width: auto;
+            display: block;
+            transition: var(--transition);
         }
 
-        body.dark-theme .logo-mini .logo-main {
-            color: var(--accent);
-        }
-
-        .logo-mini .logo-sub {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: rgba(255,255,255,0.8);
-            margin-top: 0;
+        .logo-img:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
         }
 
         .nav {
@@ -235,6 +232,18 @@
             color: var(--dark);
             transform: translateY(-2px);
             box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 55px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 45px;
+            }
         }
 
         .full-logo {
@@ -1362,7 +1371,9 @@
     <div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
     <header>
         <div class="container header-container">
-            <a href="#home" class="logo-mini"><div class="logo-main">МиС</div><div class="logo-sub">Мебель и Стиль</div></a>
+            <a href="#home" class="logo-mini">
+                <img src="image/nano-banana-69d76b013d1d1ad279ceeb46.png" alt="Мебель и Стиль" class="logo-img">
+            </a>
             <ul class="nav">
                 <li><a href="#about">О нас</a></li><li><a href="#steps">Этапы</a></li>
                 <li><a href="#packages">Пакеты</a></li><li><a href="#portfolio">Наши работы</a></li>
@@ -1473,199 +1484,138 @@
     <div><h3 style="color:white;margin-bottom:20px;">Контакты</h3><ul><li><i class="fas fa-phone" style="margin-right:10px;"></i>+7 (812) 925 88-56</li><li><i class="fas fa-envelope" style="margin-right:10px;"></i>brwmebelspb@yandex.ru</li><li><i class="fas fa-map-marker-alt" style="margin-right:10px;"></i>г. Кудрово, ул. Промышленная, д.3 к.3, этаж 2</li></ul></div></div><div class="copyright">© 2026 Мебель и Стиль. Все права защищены.</div></div></footer>
 
     <script>
-        // Тема
-        const themeToggle = document.getElementById('themeToggle'), body = document.body, themeIcon = themeToggle.querySelector('i');
-        if (localStorage.getItem('theme') === 'dark') { body.classList.add('dark-theme'); themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
-        themeToggle.addEventListener('click', () => { body.classList.toggle('dark-theme'); if (body.classList.contains('dark-theme')) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); localStorage.setItem('theme','dark'); } else { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); localStorage.setItem('theme','light'); } });
+        (function() {
+            // --- 1. ТЕМА ---
+            const themeToggle = document.getElementById('themeToggle'), body = document.body, themeIcon = themeToggle.querySelector('i');
+            if (localStorage.getItem('theme') === 'dark') { body.classList.add('dark-theme'); themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
+            themeToggle.addEventListener('click', () => { body.classList.toggle('dark-theme'); if (body.classList.contains('dark-theme')) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); localStorage.setItem('theme','dark'); } else { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); localStorage.setItem('theme','light'); } });
 
-        // Карусель с 7 фото
-        const carouselImages = [
-            { src: 'image/лицо карусель/300.jpg', alt: 'Интерьер 1' },
-            { src: 'image/лицо карусель/301.jpg', alt: 'Интерьер 2' },
-            { src: 'image/лицо карусель/302.jpg', alt: 'Интерьер 3' },
-            { src: 'image/лицо карусель/303.jpg', alt: 'Интерьер 4' },
-            { src: 'image/лицо карусель/304.jpeg', alt: 'Интерьер 5' },
-            { src: 'image/лицо карусель/305.jpeg', alt: 'Интерьер 6' },
-            { src: 'image/лицо карусель/306.jpeg', alt: 'Интерьер 7' }
-        ];
-        const track = document.getElementById('carouselTrack'), dotsContainer = document.getElementById('carouselDots'), wrapper = document.getElementById('carouselWrapper');
-        const prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
-        carouselImages.forEach((img, idx) => { let slide = document.createElement('div'); slide.className = 'carousel-slide'; let imgEl = document.createElement('img'); imgEl.src = img.src; imgEl.alt = img.alt; imgEl.loading = 'lazy'; imgEl.onerror = function() { this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото '+(idx+1)+'</text></svg>'; }; slide.appendChild(imgEl); track.appendChild(slide); });
-        carouselImages.forEach((_, idx) => { let dot = document.createElement('span'); dot.className = 'dot' + (idx===0?' active':''); dot.setAttribute('data-index',idx); dotsContainer.appendChild(dot); });
-        let slides = document.querySelectorAll('.carousel-slide'), dots = document.querySelectorAll('.dot'), currentIndex = 0, isDragging = false, startX = 0, dragStartOffset = 0;
-        function updateActiveSlide() { slides.forEach((s,i)=>i===currentIndex?s.classList.add('active'):s.classList.remove('active')); dots.forEach((d,i)=>d.classList.toggle('active',i===currentIndex)); }
-        function updateCarousel(animate=true) { if(!animate) track.style.transition='none'; else track.style.transition='transform 0.6s cubic-bezier(0.25,0.1,0.25,1)'; let slideWidth=slides[0].offsetWidth+20, wrapperWidth=wrapper.offsetWidth, offset=(currentIndex*slideWidth)-(wrapperWidth/2-slides[0].offsetWidth/2); track.style.transform=`translateX(-${Math.max(0,offset)}px)`; updateActiveSlide(); }
-        prevBtn.addEventListener('click',()=>{ currentIndex = currentIndex>0?currentIndex-1:slides.length-1; updateCarousel(); });
-        nextBtn.addEventListener('click',()=>{ currentIndex = currentIndex<slides.length-1?currentIndex+1:0; updateCarousel(); });
-        dots.forEach((d,i)=>d.addEventListener('click',()=>{ currentIndex=i; updateCarousel(); }));
-        wrapper.addEventListener('mousedown',e=>{ isDragging=true; startX=e.pageX; let t=getComputedStyle(track).transform; dragStartOffset = t!=='none'? -new DOMMatrix(t).m41:0; track.style.transition='none'; wrapper.style.cursor='grabbing'; e.preventDefault(); });
-        window.addEventListener('mousemove',e=>{ if(!isDragging) return; let diff=e.pageX-startX; let newOffset=dragStartOffset-diff, maxOffset=(slides.length-1)*(slides[0].offsetWidth+20); track.style.transform=`translateX(-${Math.max(0,Math.min(maxOffset,newOffset))}px)`; });
-        window.addEventListener('mouseup',e=>{ if(!isDragging) return; isDragging=false; track.style.transition='transform 0.6s cubic-bezier(0.25,0.1,0.25,1)'; wrapper.style.cursor='grab'; let slideWidth=slides[0].offsetWidth+20, newIdx=Math.round(Math.abs(parseFloat(track.style.transform.replace('translateX(-','')))/slideWidth); if(newIdx!==currentIndex && newIdx>=0 && newIdx<slides.length) currentIndex=newIdx; updateCarousel(); });
-        window.addEventListener('resize',()=>updateCarousel(false));
-        setTimeout(()=>updateCarousel(false),100);
-
-        // Стили табы
-        document.querySelectorAll('.style-tab').forEach(tab=>{ tab.addEventListener('click',function(){ document.querySelectorAll('.style-tab').forEach(t=>t.classList.remove('active')); document.querySelectorAll('.style-content').forEach(c=>c.classList.remove('active')); this.classList.add('active'); document.getElementById(this.dataset.style).classList.add('active'); }); });
-
-        // Пакеты
-        const packagesGrid = document.getElementById('packagesGrid');
-        if(packagesGrid){
-            packagesGrid.innerHTML = `
-            <div class="package-card studio-package"><div class="package-header"><h3 class="package-name">Стандарт</h3><div class="package-price">от 349 000 ₽</div><a href="https://brwmebel.github.io/apartment-studio/" class="btn" style="width:100%;" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Кухонный гарнитур прямой до 1800 мм</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка кухонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая (2 комфорки)</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка наклонная/встраиваемая</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Диван еврокнижка</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф распашной двухстворчатый</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод/тумба под ТВ</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол прямоугольный обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, зеркалом и обувницей</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>
-            <div class="package-card studio-package" style="border:2px solid var(--accent);"><div class="package-header" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><h3 class="package-name">Комфорт</h3><div class="package-price">от 450 000 ₽</div><a href="https://vk.com/im/convo/-96810994?entrypoint=community_page&tab=all" class="btn" style="width:100%;background:var(--accent);color:var(--dark);" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект кухни (цвет фасадов на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск. камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск. камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка наклонная/встраиваемая</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Диван ортопедический (еврокнижка/аккордеон)</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф распашной двухстворчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод/тумба под ТВ (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, зеркалом и обувницей (на выбор)</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>
-            <div class="package-card one-room-package" style="display:none;"><div class="package-header"><h3 class="package-name">Стандарт</h3><div class="package-price">от 399 000 ₽</div><a href="https://brwmebel.github.io/1_room/" class="btn" style="width:100%;" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект прямой кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка встроенная/наклонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки (модель на выбор)</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Тумба под тв</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div><div class="feature"><i class="fas fa-check"></i><span>Диван раскладной /кровать + матрас</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф трехстворчатый или 4х створчатый</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод</span></div><div class="feature"><i class="fas fa-check"></i><span>2 прикроватные тумбы</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, полкой для головных уборов и обувницей</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>
-            <div class="package-card one-room-package" style="display:none;border:2px solid var(--accent);"><div class="package-header" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><h3 class="package-name">Комфорт</h3><div class="package-price">от 525 000 ₽</div><a href="https://vk.com/im/convo/-96810994?entrypoint=community_page&tab=all" class="btn" style="width:100%;background:var(--accent);color:var(--dark);" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект прямой кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка встроенная/наклонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный (цвет модель на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки (модель на выбор)</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Тумба под тв / тумба комбинированная (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div><div class="feature"><i class="fas fa-check"></i><span>Диван раскладной ортопедический/кровать/кровать мягкая + матрас</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф трехстворчатый или 4х створчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>2 прикроватные тумбы</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая комбинированная/шкаф купе</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>`;
-            document.querySelectorAll('.package-tab').forEach(t=>t.addEventListener('click',function(){ document.querySelectorAll('.package-tab').forEach(tt=>tt.classList.remove('active')); this.classList.add('active'); let isStudio=this.dataset.tab==='studio'; document.querySelectorAll('.studio-package').forEach(p=>p.style.display=isStudio?'block':'none'); document.querySelectorAll('.one-room-package').forEach(p=>p.style.display=isStudio?'none':'block'); })); }
-
-        // ========== ПРОЕКТЫ ==========
-        
-        // 1. Полная меблировка (3 проекта)
-        function getGallery(folder, start, end, ext) {
-            let photos = [];
-            for (let i = start; i <= end; i++) {
-                photos.push(`image/полная меблировка/${folder}/${i}.${ext}`);
-            }
-            return photos;
-        }
-
-        const fullProjects = [
-            {
-                id: 1,
-                title: "Студия ЖК «Сенат»",
-                description: "Комплектация квартиры 24,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.",
-                tags: ["24,2 м²", "Студия", "Полная меблировка"],
-                category: "full",
-                gallery: getGallery("студия универ сити", 200, 239, "jpg")
-            },
-            {
-                id: 2,
-                title: "1-комнатная квартира ЖК «Универ Сити»",
-                description: "Комплектация квартиры 33,71 м² в современном стиле. Включает кухню-гостиную с диваном и зоной под ТВ, спальню и прихожую.",
-                tags: ["33,71 м²", "1-комнатная", "Полная меблировка"],
-                category: "full",
-                gallery: getGallery("1 к кв универ сити", 1, 18, "jpeg")
-            },
-            {
-                id: 3,
-                title: "Студия ЖК «Универ Сити»",
-                description: "Комплектация квартиры 26,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.",
-                tags: ["26,2 м²", "Студия", "Полная меблировка"],
-                category: "full",
-                gallery: (() => {
-                    let photos = [];
-                    for (let i = 100; i <= 119; i++) {
-                        let ext = (i === 100) ? 'jfif' : 'jpeg';
-                        photos.push(`image/полная меблировка/студия сенат/${i}.${ext}`);
-                    }
-                    return photos;
-                })()
-            }
-        ];
-
-        // 2. Кухни (2 проекта) — вертикальные фото центрируются
-        const kitchenProjects = [
-            {
-                id: 4,
-                title: "Проект 1",
-                description: "Современная кухня с островом. Фасады из МДФ, столешница из искусственного камня, встроенная техника.",
-                tags: ["Кухня", "Современный стиль", "Индивидуальный проект"],
-                category: "kitchen",
-                gallery: (() => {
-                    let photos = [];
-                    for (let i = 400; i <= 403; i++) {
-                        photos.push(`image/кухни/проект1/${i}.jpg`);
-                    }
-                    return photos;
-                })()
-            },
-            {
-                id: 5,
-                title: "Проект 2",
-                description: "Кухня в светлых тонах. Эргономичная планировка, системы хранения, современная бытовая техника.",
-                tags: ["Кухня", "Светлые тона", "Эргономика"],
-                category: "kitchen",
-                gallery: (() => {
-                    let photos = [];
-                    for (let i = 500; i <= 509; i++) {
-                        photos.push(`image/кухни/проект2/${i}.jpg`);
-                    }
-                    return photos;
-                })()
-            }
-        ];
-
-        // Объединяем проекты (только полная меблировка и кухни)
-        const allProjects = [...fullProjects, ...kitchenProjects];
-
-        const portfolioGridEl = document.getElementById('portfolioGrid');
-        const modal = document.getElementById('galleryModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-        const modalGallery = document.getElementById('modalGallery');
-        const modalClose = document.getElementById('modalClose');
-
-        function openModal(project) {
-            modalTitle.textContent = project.title;
-            modalDesc.textContent = project.description;
-            modalGallery.innerHTML = '';
-            project.gallery.forEach((src, idx) => {
-                let img = document.createElement('img');
-                img.src = src;
-                img.alt = `${project.title} - фото ${idx+1}`;
-                img.loading = 'lazy';
-                modalGallery.appendChild(img);
-            });
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() { modal.classList.remove('active'); document.body.style.overflow = ''; }
-        modalClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
-        document.addEventListener('keydown', e => { if(modal.classList.contains('active') && e.key === 'Escape') closeModal(); });
-
-        function renderPortfolio(filter = 'all') {
-            portfolioGridEl.innerHTML = '';
-            let filtered = [];
-            if (filter === 'all') {
-                filtered = allProjects;
-            } else {
-                filtered = allProjects.filter(p => p.category === filter);
-            }
+            // --- 2. КАРУСЕЛЬ (7 фото) ---
+            const carouselImages = [
+                { src: 'image/лицо карусель/300.jpg', alt: 'Интерьер 1' },
+                { src: 'image/лицо карусель/301.jpg', alt: 'Интерьер 2' },
+                { src: 'image/лицо карусель/302.jpg', alt: 'Интерьер 3' },
+                { src: 'image/лицо карусель/303.jpg', alt: 'Интерьер 4' },
+                { src: 'image/лицо карусель/304.jpeg', alt: 'Интерьер 5' },
+                { src: 'image/лицо карусель/305.jpeg', alt: 'Интерьер 6' },
+                { src: 'image/лицо карусель/306.jpeg', alt: 'Интерьер 7' }
+            ];
+            const track = document.getElementById('carouselTrack'), dotsContainer = document.getElementById('carouselDots'), wrapper = document.getElementById('carouselWrapper');
+            const prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
             
-            filtered.forEach(proj => {
-                const item = document.createElement('div');
-                item.className = 'portfolio-item';
-                const firstImg = proj.gallery[0];
-                item.innerHTML = `
-                    <div class="portfolio-img"><img src="${firstImg}" alt="${proj.title}" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 100 100\'><rect width=\'100%\' height=\'100%\' fill=\'%231a3b2e\'/><text x=\'50\' y=\'50\' font-size=\'14\' text-anchor=\'middle\' dy=\'.3em\' fill=\'white\'>${proj.title}</text></svg>'"></div>
-                    <div class="portfolio-info">
-                        <h3>${proj.title}</h3>
-                        <p>${proj.description}</p>
-                        <div class="portfolio-tags">${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-                    </div>
-                `;
-                item.addEventListener('click', () => openModal(proj));
-                portfolioGridEl.appendChild(item);
-            });
-            document.querySelectorAll('.portfolio-item').forEach((it, idx) => { it.style.opacity = '0'; it.style.transform = 'translateY(20px)'; setTimeout(() => { it.style.transition = 'opacity 0.3s, transform 0.3s'; it.style.opacity = '1'; it.style.transform = 'translateY(0)'; }, idx * 50); });
-        }
-        
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', function() { document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); renderPortfolio(this.dataset.filter); }));
-        renderPortfolio('all');
+            carouselImages.forEach((img, idx) => { let slide = document.createElement('div'); slide.className = 'carousel-slide'; let imgEl = document.createElement('img'); imgEl.src = img.src; imgEl.alt = img.alt; imgEl.loading = 'lazy'; imgEl.onerror = function() { this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото '+(idx+1)+'</text></svg>'; }; slide.appendChild(imgEl); track.appendChild(slide); });
+            carouselImages.forEach((_, idx) => { let dot = document.createElement('span'); dot.className = 'dot' + (idx===0?' active':''); dot.setAttribute('data-index',idx); dotsContainer.appendChild(dot); });
+            
+            let slides = document.querySelectorAll('.carousel-slide'), dots = document.querySelectorAll('.dot'), currentIndex = 0, isDragging = false, startX = 0, dragStartOffset = 0;
+            function updateActiveSlide() { slides.forEach((s,i)=>i===currentIndex?s.classList.add('active'):s.classList.remove('active')); dots.forEach((d,i)=>d.classList.toggle('active',i===currentIndex)); }
+            function updateCarousel(animate=true) { if(!animate) track.style.transition='none'; else track.style.transition='transform 0.6s cubic-bezier(0.25,0.1,0.25,1)'; let slideWidth=slides[0].offsetWidth+20, wrapperWidth=wrapper.offsetWidth, offset=(currentIndex*slideWidth)-(wrapperWidth/2-slides[0].offsetWidth/2); track.style.transform=`translateX(-${Math.max(0,offset)}px)`; updateActiveSlide(); }
+            prevBtn.addEventListener('click',()=>{ currentIndex = currentIndex>0?currentIndex-1:slides.length-1; updateCarousel(); });
+            nextBtn.addEventListener('click',()=>{ currentIndex = currentIndex<slides.length-1?currentIndex+1:0; updateCarousel(); });
+            dots.forEach((d,i)=>d.addEventListener('click',()=>{ currentIndex=i; updateCarousel(); }));
+            wrapper.addEventListener('mousedown',e=>{ isDragging=true; startX=e.pageX; let t=getComputedStyle(track).transform; dragStartOffset = t!=='none'? -new DOMMatrix(t).m41:0; track.style.transition='none'; wrapper.style.cursor='grabbing'; e.preventDefault(); });
+            window.addEventListener('mousemove',e=>{ if(!isDragging) return; let diff=e.pageX-startX; let newOffset=dragStartOffset-diff, maxOffset=(slides.length-1)*(slides[0].offsetWidth+20); track.style.transform=`translateX(-${Math.max(0,Math.min(maxOffset,newOffset))}px)`; });
+            window.addEventListener('mouseup',()=>{ if(!isDragging) return; isDragging=false; track.style.transition='transform 0.6s cubic-bezier(0.25,0.1,0.25,1)'; wrapper.style.cursor='grab'; let slideWidth=slides[0].offsetWidth+20, newIdx=Math.round(Math.abs(parseFloat(track.style.transform.replace('translateX(-','')))/slideWidth); if(newIdx!==currentIndex && newIdx>=0 && newIdx<slides.length) currentIndex=newIdx; updateCarousel(); });
+            window.addEventListener('resize',()=>updateCarousel(false));
+            setTimeout(()=>updateCarousel(false),100);
 
-        // Партнеры
-        const partners = [
-            { name:"БРВ Мебель", desc:"Белорусская мебель" }, { name:"К2 Мебель", desc:"Кухни и шкафы по индивидуальному проекту" },
-            { name:"Мебель Виват", desc:"Кухни и мебель на заказ" }, { name:"Глазов-мебель", desc:"Классическая и современная мебель" },
-            { name:"Ивару", desc:"Корпусная мебель от производителя" }, { name:"Мебельград", desc:"Мебельный гипермаркет" },
-            { name:"Натура Вера", desc:"Матрасы и мягкие кровати" }, { name:"Пинскдрев", desc:"Группа компаний мебели из Беларуси" },
-            { name:"Гомельдрев", desc:"Белорусская мебель из массива" }, { name:"Грин Мебель", desc:"Мебель из массива сосны" },
-            { name:"Корретто", desc:"Фабрика матрасов и кроватей" }, { name:"СоюзРегионПоставка", desc:"Обеденные группы - столы, стулья на металлокаркасе" }
-        ];
-        const partnersTrackEl = document.getElementById('partnersTrack');
-        const colors = ['#1a3b2e','#2a5a45','#3d7a5a','#5a9b6e','#4a7c5c','#3b6a4a','#2c5a3e','#1e4a32','#2a6a4a','#3e7a5a','#2e5a4a','#1e3e2e'];
-        partners.forEach((p,idx)=>{ let card=document.createElement('div'); card.className='partner-card-static'; let logo=document.createElement('div'); logo.className='partner-logo-static'; logo.style.backgroundColor=colors[idx%colors.length]; logo.textContent=p.name.charAt(0).toUpperCase(); let nameDiv=document.createElement('div'); nameDiv.className='partner-name-static'; nameDiv.textContent=p.name; let descDiv=document.createElement('div'); descDiv.className='partner-desc-static'; descDiv.textContent=p.desc; card.append(logo,nameDiv,descDiv); partnersTrackEl.appendChild(card); });
-        partners.forEach((p,idx)=>{ let card=document.createElement('div'); card.className='partner-card-static'; let logo=document.createElement('div'); logo.className='partner-logo-static'; logo.style.backgroundColor=colors[idx%colors.length]; logo.textContent=p.name.charAt(0).toUpperCase(); let nameDiv=document.createElement('div'); nameDiv.className='partner-name-static'; nameDiv.textContent=p.name; let descDiv=document.createElement('div'); descDiv.className='partner-desc-static'; descDiv.textContent=p.desc; card.append(logo,nameDiv,descDiv); partnersTrackEl.appendChild(card); });
+            // --- 3. ТАБЫ СТИЛЕЙ ---
+            document.querySelectorAll('.style-tab').forEach(tab=>{ tab.addEventListener('click',function(){ document.querySelectorAll('.style-tab').forEach(t=>t.classList.remove('active')); document.querySelectorAll('.style-content').forEach(c=>c.classList.remove('active')); this.classList.add('active'); document.getElementById(this.dataset.style).classList.add('active'); }); });
+
+            // --- 4. ПАКЕТЫ ---
+            const packagesGrid = document.getElementById('packagesGrid');
+            if(packagesGrid){
+                packagesGrid.innerHTML = `
+                <div class="package-card studio-package"><div class="package-header"><h3 class="package-name">Стандарт</h3><div class="package-price">от 349 000 ₽</div><a href="https://brwmebel.github.io/apartment-studio/" class="btn" style="width:100%;" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Кухонный гарнитур прямой до 1800 мм</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка кухонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая (2 комфорки)</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка наклонная/встраиваемая</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Диван еврокнижка</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф распашной двухстворчатый</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод/тумба под ТВ</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол прямоугольный обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, зеркалом и обувницей</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>
+                <div class="package-card studio-package" style="border:2px solid var(--accent);"><div class="package-header" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><h3 class="package-name">Комфорт</h3><div class="package-price">от 450 000 ₽</div><a href="https://vk.com/im/convo/-96810994?entrypoint=community_page&tab=all" class="btn" style="width:100%;background:var(--accent);color:var(--dark);" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект кухни (цвет фасадов на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск. камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск. камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка наклонная/встраиваемая</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Диван ортопедический (еврокнижка/аккордеон)</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф распашной двухстворчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод/тумба под ТВ (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, зеркалом и обувницей (на выбор)</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>
+                <div class="package-card one-room-package" style="display:none;"><div class="package-header"><h3 class="package-name">Стандарт</h3><div class="package-price">от 399 000 ₽</div><a href="https://brwmebel.github.io/1_room/" class="btn" style="width:100%;" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект прямой кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка встроенная/наклонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки (модель на выбор)</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Тумба под тв</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div><div class="feature"><i class="fas fa-check"></i><span>Диван раскладной /кровать + матрас</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф трехстворчатый или 4х створчатый</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод</span></div><div class="feature"><i class="fas fa-check"></i><span>2 прикроватные тумбы</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, полкой для головных уборов и обувницей</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>
+                <div class="package-card one-room-package" style="display:none;border:2px solid var(--accent);"><div class="package-header" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><h3 class="package-name">Комфорт</h3><div class="package-price">от 525 000 ₽</div><a href="https://vk.com/im/convo/-96810994?entrypoint=community_page&tab=all" class="btn" style="width:100%;background:var(--accent);color:var(--dark);" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект прямой кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка встроенная/наклонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный (цвет модель на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки (модель на выбор)</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Тумба под тв / тумба комбинированная (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div><div class="feature"><i class="fas fa-check"></i><span>Диван раскладной ортопедический/кровать/кровать мягкая + матрас</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф трехстворчатый или 4х створчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>2 прикроватные тумбы</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая комбинированная/шкаф купе</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 19 900 ₽</div></div></div>`;
+                document.querySelectorAll('.package-tab').forEach(t=>t.addEventListener('click',function(){ document.querySelectorAll('.package-tab').forEach(tt=>tt.classList.remove('active')); this.classList.add('active'); let isStudio=this.dataset.tab==='studio'; document.querySelectorAll('.studio-package').forEach(p=>p.style.display=isStudio?'block':'none'); document.querySelectorAll('.one-room-package').forEach(p=>p.style.display=isStudio?'none':'block'); })); 
+            }
+
+            // --- 5. ПОРТФОЛИО И МОДАЛЬНОЕ ОКНО (ПОЛНАЯ ВЕРСИЯ) ---
+            function getGallery(folder, start, end, ext) {
+                let photos = [];
+                for (let i = start; i <= end; i++) {
+                    photos.push(`image/полная меблировка/${folder}/${i}.${ext}`);
+                }
+                return photos;
+            }
+
+            const fullProjects = [
+                { id: 1, title: "Студия ЖК «Сенат»", description: "Комплектация квартиры 24,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.", tags: ["24,2 м²", "Студия", "Полная меблировка"], category: "full", gallery: getGallery("студия универ сити", 200, 239, "jpg") },
+                { id: 2, title: "1-комнатная квартира ЖК «Универ Сити»", description: "Комплектация квартиры 33,71 м² в современном стиле. Включает кухню-гостиную с диваном и зоной под ТВ, спальню и прихожую.", tags: ["33,71 м²", "1-комнатная", "Полная меблировка"], category: "full", gallery: getGallery("1 к кв универ сити", 1, 18, "jpeg") },
+                { id: 3, title: "Студия ЖК «Универ Сити»", description: "Комплектация квартиры 26,2 м² в современном стиле. Включает кухню-гостиную, диван и систему хранения.", tags: ["26,2 м²", "Студия", "Полная меблировка"], category: "full", gallery: (() => { let photos = []; for (let i = 100; i <= 119; i++) { let ext = (i === 100) ? 'jfif' : 'jpeg'; photos.push(`image/полная меблировка/студия сенат/${i}.${ext}`); } return photos; })() }
+            ];
+
+            const kitchenProjects = [
+                { id: 4, title: "Проект 1", description: "Современная кухня с островом. Фасады из МДФ, столешница из искусственного камня, встроенная техника.", tags: ["Кухня", "Современный стиль", "Индивидуальный проект"], category: "kitchen", gallery: (() => { let photos = []; for (let i = 400; i <= 403; i++) { photos.push(`image/кухни/проект1/${i}.jpg`); } return photos; })() },
+                { id: 5, title: "Проект 2", description: "Кухня в светлых тонах. Эргономичная планировка, системы хранения, современная бытовая техника.", tags: ["Кухня", "Светлые тона", "Эргономика"], category: "kitchen", gallery: (() => { let photos = []; for (let i = 500; i <= 509; i++) { photos.push(`image/кухни/проект2/${i}.jpg`); } return photos; })() }
+            ];
+
+            const allProjects = [...fullProjects, ...kitchenProjects];
+            const portfolioGridEl = document.getElementById('portfolioGrid');
+            const modal = document.getElementById('galleryModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDesc = document.getElementById('modalDesc');
+            const modalGallery = document.getElementById('modalGallery');
+            const modalClose = document.getElementById('modalClose');
+
+            function openModal(project) {
+                modalTitle.textContent = project.title;
+                modalDesc.textContent = project.description;
+                modalGallery.innerHTML = '';
+                project.gallery.forEach((src, idx) => {
+                    let img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `${project.title} - фото ${idx+1}`;
+                    img.loading = 'lazy';
+                    modalGallery.appendChild(img);
+                });
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+            document.addEventListener('keydown', e => { if(modal.classList.contains('active') && e.key === 'Escape') closeModal(); });
+
+            function renderPortfolio(filter = 'all') {
+                portfolioGridEl.innerHTML = '';
+                let filtered = (filter === 'all') ? allProjects : allProjects.filter(p => p.category === filter);
+                filtered.forEach(proj => {
+                    const item = document.createElement('div');
+                    item.className = 'portfolio-item';
+                    const firstImg = proj.gallery[0];
+                    item.innerHTML = `
+                        <div class="portfolio-img"><img src="${firstImg}" alt="${proj.title}" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 100 100\'><rect width=\'100%\' height=\'100%\' fill=\'%231a3b2e\'/><text x=\'50\' y=\'50\' font-size=\'14\' text-anchor=\'middle\' dy=\'.3em\' fill=\'white\'>${proj.title}</text></svg>'"></div>
+                        <div class="portfolio-info">
+                            <h3>${proj.title}</h3>
+                            <p>${proj.description}</p>
+                            <div class="portfolio-tags">${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                        </div>
+                    `;
+                    item.addEventListener('click', () => openModal(proj));
+                    portfolioGridEl.appendChild(item);
+                });
+                document.querySelectorAll('.portfolio-item').forEach((it, idx) => { it.style.opacity = '0'; it.style.transform = 'translateY(20px)'; setTimeout(() => { it.style.transition = 'opacity 0.3s, transform 0.3s'; it.style.opacity = '1'; it.style.transform = 'translateY(0)'; }, idx * 50); });
+            }
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', function() { document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); renderPortfolio(this.dataset.filter); }));
+            renderPortfolio('all');
+
+            // --- 6. ПАРТНЕРЫ (БЕГУЩАЯ СТРОКА) ---
+            const partners = [
+                { name:"БРВ Мебель", desc:"Белорусская мебель" }, { name:"К2 Мебель", desc:"Кухни и шкафы по индивидуальному проекту" },
+                { name:"Мебель Виват", desc:"Кухни и мебель на заказ" }, { name:"Глазов-мебель", desc:"Классическая и современная мебель" },
+                { name:"Ивару", desc:"Корпусная мебель от производителя" }, { name:"Мебельград", desc:"Мебельный гипермаркет" },
+                { name:"Натура Вера", desc:"Матрасы и мягкие кровати" }, { name:"Пинскдрев", desc:"Группа компаний мебели из Беларуси" },
+                { name:"Гомельдрев", desc:"Белорусская мебель из массива" }, { name:"Грин Мебель", desc:"Мебель из массива сосны" },
+                { name:"Корретто", desc:"Фабрика матрасов и кроватей" }, { name:"СоюзРегионПоставка", desc:"Обеденные группы - столы, стулья на металлокаркасе" }
+            ];
+            const partnersTrackEl = document.getElementById('partnersTrack');
+            const colors = ['#1a3b2e','#2a5a45','#3d7a5a','#5a9b6e','#4a7c5c','#3b6a4a','#2c5a3e','#1e4a32','#2a6a4a','#3e7a5a','#2e5a4a','#1e3e2e'];
+            partners.forEach((p,idx)=>{ let card=document.createElement('div'); card.className='partner-card-static'; let logo=document.createElement('div'); logo.className='partner-logo-static'; logo.style.backgroundColor=colors[idx%colors.length]; logo.textContent=p.name.charAt(0).toUpperCase(); let nameDiv=document.createElement('div'); nameDiv.className='partner-name-static'; nameDiv.textContent=p.name; let descDiv=document.createElement('div'); descDiv.className='partner-desc-static'; descDiv.textContent=p.desc; card.append(logo,nameDiv,descDiv); partnersTrackEl.appendChild(card); });
+            partners.forEach((p,idx)=>{ let card=document.createElement('div'); card.className='partner-card-static'; let logo=document.createElement('div'); logo.className='partner-logo-static'; logo.style.backgroundColor=colors[idx%colors.length]; logo.textContent=p.name.charAt(0).toUpperCase(); let nameDiv=document.createElement('div'); nameDiv.className='partner-name-static'; nameDiv.textContent=p.name; let descDiv=document.createElement('div'); descDiv.className='partner-desc-static'; descDiv.textContent=p.desc; card.append(logo,nameDiv,descDiv); partnersTrackEl.appendChild(card); });
+        })();
     </script>
 </body>
 </html>
