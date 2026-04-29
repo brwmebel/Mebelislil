@@ -1622,7 +1622,7 @@
 
     <!-- О НАС -->
     <section class="about-block" id="about"><div class="container"><div class="about-container">
-        <div class="about-image"><img src="image/photo_5233431171193051302_y.jpg" alt="О компании Мебель и Стиль"></div>
+        <div class="about-image"><img src="image/photo_5233431171193051302_y.jpg" alt="О компании Мебель и Стиль" data-mobile-src="image/mobile/photo_5233431171193051302_y.webp" loading="lazy"></div>
         <div class="about-text">
             <div class="about-bold">Помогаем подготовить недвижимость к проживанию, сдаче в аренду или продаже.</div>
             <p>За каждым проектом стоит индивидуальный подход и внимание к деталям. Мы не просто расставляем мебель — мы создаём целостное пространство, где всё продумано до мелочей.</p>
@@ -1640,7 +1640,7 @@
     <div class="step-item"><h3>Договор и спецификация</h3><p>Согласовываем итоговый перечень позиций, подписываем договор. Вносится предоплата 50%.</p></div>
     <div class="step-item"><h3>Комплектация и сборка</h3><p>Заказываем мебель и технику, доставляем на объект, выполняем сборку и подключение. Доводим интерьер до финального вида.</p></div>
     <div class="step-item"><h3>Приёмка</h3><p>Вы принимаете готовый объект, подписываем закрывающие документы и передаём ключи.</p></div></div>
-    <div class="steps-right"><div class="steps-image"><img src="image/IMG_8212.jpg" alt="Процесс работы над интерьером"></div>
+    <div class="steps-right"><div class="steps-image"><img src="image/IMG_8212.jpg" alt="Процесс работы над интерьером" data-mobile-src="image/mobile/IMG_8212.webp" loading="lazy"></div>
     <div class="steps-note"><p>Обычно полная комплектация студии или однокомнатной квартиры занимает около 4 недель — при условии выбора позиций со склада. Индивидуальные заказы могут увеличить срок.</p>
     <p>Все этапы можно согласовывать удалённо. Мы регулярно направляем фото- и видеоотчёты, остаёмся на связи в удобных мессенджерах.</p></div></div></div>
     <div class="steps-btn"><a href="https://vk.me/club96810994" class="btn" target="_blank">Начать проект</a></div></div></section>
@@ -1705,21 +1705,58 @@
 
     <script>
         (function() {
+            // Определяем, мобильное ли устройство
+            const isMobile = window.innerWidth <= 768;
+            
+            // Функция для подмены пути на мобильный
+            function getMobileSrc(originalSrc) {
+                if (!isMobile) return originalSrc;
+                // Заменяем image/ на image/mobile/ и расширение на .webp
+                let mobileSrc = originalSrc.replace(/^image\//, 'image/mobile/');
+                mobileSrc = mobileSrc.replace(/\.(jpg|jpeg|png|jfif)$/i, '.webp');
+                return mobileSrc;
+            }
+
+            // Применяем подмену для статических изображений с data-mobile-src
+            document.querySelectorAll('img[data-mobile-src]').forEach(img => {
+                if (isMobile) {
+                    img.src = img.getAttribute('data-mobile-src');
+                }
+            });
+
             // Тема
             const themeToggle = document.getElementById('themeToggle'), body = document.body, themeIcon = themeToggle.querySelector('i');
             if (localStorage.getItem('theme') === 'dark') { body.classList.add('dark-theme'); themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
             themeToggle.addEventListener('click', () => { body.classList.toggle('dark-theme'); if (body.classList.contains('dark-theme')) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); localStorage.setItem('theme','dark'); } else { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); localStorage.setItem('theme','light'); } });
 
-            // Карусель
+            // Карусель (с мобильными фото)
             const carouselImages = [
-                { src: 'image/лицо карусель/300.jpg', alt: 'Интерьер 1' }, { src: 'image/лицо карусель/301.jpg', alt: 'Интерьер 2' },
-                { src: 'image/лицо карусель/302.jpg', alt: 'Интерьер 3' }, { src: 'image/лицо карусель/303.jpg', alt: 'Интерьер 4' },
-                { src: 'image/лицо карусель/304.jpeg', alt: 'Интерьер 5' }, { src: 'image/лицо карусель/305.jpeg', alt: 'Интерьер 6' },
+                { src: 'image/лицо карусель/300.jpg', alt: 'Интерьер 1' }, 
+                { src: 'image/лицо карусель/301.jpg', alt: 'Интерьер 2' },
+                { src: 'image/лицо карусель/302.jpg', alt: 'Интерьер 3' }, 
+                { src: 'image/лицо карусель/303.jpg', alt: 'Интерьер 4' },
+                { src: 'image/лицо карусель/304.jpeg', alt: 'Интерьер 5' }, 
+                { src: 'image/лицо карусель/305.jpeg', alt: 'Интерьер 6' },
                 { src: 'image/лицо карусель/306.jpeg', alt: 'Интерьер 7' }
             ];
             const track = document.getElementById('carouselTrack'), dotsContainer = document.getElementById('carouselDots'), wrapper = document.getElementById('carouselWrapper');
             const prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
-            carouselImages.forEach((img, idx) => { let slide = document.createElement('div'); slide.className = 'carousel-slide'; let imgEl = document.createElement('img'); imgEl.src = img.src; imgEl.alt = img.alt; imgEl.loading = 'lazy'; imgEl.onerror = function() { this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото '+(idx+1)+'</text></svg>'; }; slide.appendChild(imgEl); track.appendChild(slide); });
+            carouselImages.forEach((img, idx) => { 
+                let slide = document.createElement('div'); 
+                slide.className = 'carousel-slide'; 
+                let imgEl = document.createElement('img'); 
+                imgEl.src = getMobileSrc(img.src); 
+                imgEl.alt = img.alt; 
+                imgEl.loading = 'lazy'; 
+                imgEl.onerror = function() { 
+                    this.src = img.src; // Фолбэк на основное фото
+                    this.onerror = function() { 
+                        this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото '+(idx+1)+'</text></svg>'; 
+                    };
+                }; 
+                slide.appendChild(imgEl); 
+                track.appendChild(slide); 
+            });
             carouselImages.forEach((_, idx) => { let dot = document.createElement('span'); dot.className = 'dot' + (idx===0?' active':''); dot.setAttribute('data-index',idx); dotsContainer.appendChild(dot); });
             let slides = document.querySelectorAll('.carousel-slide'), dots = document.querySelectorAll('.dot'), currentIndex = 0, isDragging = false, startX = 0, dragStartOffset = 0;
             function updateActiveSlide() { slides.forEach((s,i)=>i===currentIndex?s.classList.add('active'):s.classList.remove('active')); dots.forEach((d,i)=>d.classList.toggle('active',i===currentIndex)); }
@@ -1748,8 +1785,20 @@
             }
 
             // === ПОРТФОЛИО ===
-            function getGallery(folder, start, end, ext) { let photos = []; for (let i = start; i <= end; i++) photos.push(`image/полная меблировка/${folder}/${i}.${ext}`); return photos; }
-            function getKitchenGallery(projectNum, start, end, ext) { let photos = []; for (let i = start; i <= end; i++) photos.push(`image/кухни/проект${projectNum}/${i}.${ext}`); return photos; }
+            function getGallery(folder, start, end, ext) { 
+                let photos = []; 
+                for (let i = start; i <= end; i++) {
+                    photos.push(`image/полная меблировка/${folder}/${i}.${ext}`); 
+                }
+                return photos; 
+            }
+            function getKitchenGallery(projectNum, start, end, ext) { 
+                let photos = []; 
+                for (let i = start; i <= end; i++) {
+                    photos.push(`image/кухни/проект${projectNum}/${i}.${ext}`); 
+                }
+                return photos; 
+            }
 
             const fullProjects = [
                 { id: 1, title: "Студия ЖК «Сенат»", description: "Комплектация 24,2 м². Современное решение с кухней-гостиной, диваном и системой хранения.", tags: ["24,2 м²", "Студия"], category: "full", gallery: getGallery("студия универ сити", 200, 239, "jpg") },
@@ -1774,10 +1823,15 @@
                 modalGallery.innerHTML = ''; 
                 p.gallery.forEach(src => { 
                     let i = document.createElement('img'); 
-                    i.src = src; 
+                    i.src = getMobileSrc(src); 
                     i.alt = p.title; 
                     i.loading = 'lazy'; 
-                    i.onerror = function() { this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото</text></svg>'; };
+                    i.onerror = function() { 
+                        this.src = src; 
+                        this.onerror = function() { 
+                            this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото</text></svg>'; 
+                        };
+                    }; 
                     modalGallery.appendChild(i); 
                 }); 
                 modal.classList.add('active'); 
@@ -1795,7 +1849,8 @@
                 f.forEach(proj => { 
                     let item = document.createElement('div'); 
                     item.className = 'portfolio-item'; 
-                    item.innerHTML = `<div class="portfolio-img"><img src="${proj.gallery[0]}" alt="${proj.title}" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 100 100\'><rect width=\'100%\' height=\'100%\' fill=\'%231a3b2e\'/><text x=\'50\' y=\'50\' font-size=\'14\' text-anchor=\'middle\' dy=\'.3em\' fill=\'white\'>${proj.title}</text></svg>'"></div><div class="portfolio-info"><h3>${proj.title}</h3><p>${proj.description}</p><div class="portfolio-tags">${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>`; 
+                    const firstImgSrc = getMobileSrc(proj.gallery[0]);
+                    item.innerHTML = `<div class="portfolio-img"><img src="${firstImgSrc}" alt="${proj.title}" loading="lazy" onerror="this.src='${proj.gallery[0]}'"></div><div class="portfolio-info"><h3>${proj.title}</h3><p>${proj.description}</p><div class="portfolio-tags">${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>`; 
                     item.addEventListener('click', () => openModal(proj)); 
                     portfolioGridEl.appendChild(item); 
                 }); 
