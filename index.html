@@ -1622,7 +1622,7 @@
 
     <!-- О НАС -->
     <section class="about-block" id="about"><div class="container"><div class="about-container">
-        <div class="about-image"><img src="image/photo_5233431171193051302_y.jpg" alt="О компании Мебель и Стиль" data-mobile-src="image/mobile/photo_5233431171193051302_y.jpg" loading="lazy"></div>
+        <div class="about-image"><img src="image/photo_5233431171193051302_y.jpg" data-mobile-src="image/mobile/photo_5233431171193051302_y.webp" alt="О компании Мебель и Стиль" loading="lazy"></div>
         <div class="about-text">
             <div class="about-bold">Помогаем подготовить недвижимость к проживанию, сдаче в аренду или продаже.</div>
             <p>За каждым проектом стоит индивидуальный подход и внимание к деталям. Мы не просто расставляем мебель — мы создаём целостное пространство, где всё продумано до мелочей.</p>
@@ -1640,7 +1640,7 @@
     <div class="step-item"><h3>Договор и спецификация</h3><p>Согласовываем итоговый перечень позиций, подписываем договор. Вносится предоплата 50%.</p></div>
     <div class="step-item"><h3>Комплектация и сборка</h3><p>Заказываем мебель и технику, доставляем на объект, выполняем сборку и подключение. Доводим интерьер до финального вида.</p></div>
     <div class="step-item"><h3>Приёмка</h3><p>Вы принимаете готовый объект, подписываем закрывающие документы и передаём ключи.</p></div></div>
-    <div class="steps-right"><div class="steps-image"><img src="image/IMG_8212.jpg" alt="Процесс работы над интерьером" data-mobile-src="image/mobile/IMG_8212.jpg" loading="lazy"></div>
+    <div class="steps-right"><div class="steps-image"><img src="image/IMG_8212.jpg" data-mobile-src="image/mobile/IMG_8212.webp" alt="Процесс работы над интерьером" loading="lazy"></div>
     <div class="steps-note"><p>Обычно полная комплектация студии или однокомнатной квартиры занимает около 4 недель — при условии выбора позиций со склада. Индивидуальные заказы могут увеличить срок.</p>
     <p>Все этапы можно согласовывать удалённо. Мы регулярно направляем фото- и видеоотчёты, остаёмся на связи в удобных мессенджерах.</p></div></div></div>
     <div class="steps-btn"><a href="https://vk.me/club96810994" class="btn" target="_blank">Начать проект</a></div></div></section>
@@ -1709,19 +1709,18 @@
             // Определяем, мобильное ли устройство
             const isMobile = window.innerWidth <= 768;
             
-            // Функция для подмены пути на мобильный (для шкафов — без смены расширения на webp)
+            // Функция для подмены пути на мобильный
             function getMobileSrc(originalSrc) {
                 if (!isMobile) return originalSrc;
-                // Заменяем image/ на image/mobile/
                 let mobileSrc = originalSrc.replace(/^image\//, 'image/mobile/');
-                // Меняем расширение на .webp только для НЕ-шкафов (у шкафов оставляем .jpg)
+                // Для Шкафов не меняем расширение
                 if (!mobileSrc.includes('/Шкафы/')) {
                     mobileSrc = mobileSrc.replace(/\.(jpg|jpeg|png|jfif)$/i, '.webp');
                 }
                 return mobileSrc;
             }
 
-            // Применяем подмену для статических изображений с data-mobile-src
+            // Применяем подмену для статических изображений
             document.querySelectorAll('img[data-mobile-src]').forEach(img => {
                 if (isMobile) {
                     img.src = img.getAttribute('data-mobile-src');
@@ -1754,9 +1753,6 @@
                 imgEl.loading = 'lazy'; 
                 imgEl.onerror = function() { 
                     this.src = img.src;
-                    this.onerror = function() { 
-                        this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото '+(idx+1)+'</text></svg>'; 
-                    };
                 }; 
                 slide.appendChild(imgEl); 
                 track.appendChild(slide); 
@@ -1823,12 +1819,7 @@
                     i.src = getMobileSrc(src); 
                     i.alt = p.title; 
                     i.loading = 'lazy'; 
-                    i.onerror = function() { 
-                        this.src = src; 
-                        this.onerror = function() { 
-                            this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото</text></svg>'; 
-                        };
-                    }; 
+                    i.onerror = function() { this.src = src; }; 
                     modalGallery.appendChild(i); 
                 }); 
                 modal.classList.add('active'); 
