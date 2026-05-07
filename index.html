@@ -1622,7 +1622,7 @@
 
     <!-- О НАС -->
     <section class="about-block" id="about"><div class="container"><div class="about-container">
-        <div class="about-image"><img src="image/photo_5233431171193051302_y.jpg" alt="О компании Мебель и Стиль" data-mobile-src="image/mobile/photo_5233431171193051302_y.webp" loading="lazy"></div>
+        <div class="about-image"><img src="image/photo_5233431171193051302_y.jpg" alt="О компании Мебель и Стиль" data-mobile-src="image/mobile/photo_5233431171193051302_y.jpg" loading="lazy"></div>
         <div class="about-text">
             <div class="about-bold">Помогаем подготовить недвижимость к проживанию, сдаче в аренду или продаже.</div>
             <p>За каждым проектом стоит индивидуальный подход и внимание к деталям. Мы не просто расставляем мебель — мы создаём целостное пространство, где всё продумано до мелочей.</p>
@@ -1640,7 +1640,7 @@
     <div class="step-item"><h3>Договор и спецификация</h3><p>Согласовываем итоговый перечень позиций, подписываем договор. Вносится предоплата 50%.</p></div>
     <div class="step-item"><h3>Комплектация и сборка</h3><p>Заказываем мебель и технику, доставляем на объект, выполняем сборку и подключение. Доводим интерьер до финального вида.</p></div>
     <div class="step-item"><h3>Приёмка</h3><p>Вы принимаете готовый объект, подписываем закрывающие документы и передаём ключи.</p></div></div>
-    <div class="steps-right"><div class="steps-image"><img src="image/IMG_8212.jpg" alt="Процесс работы над интерьером" data-mobile-src="image/mobile/IMG_8212.webp" loading="lazy"></div>
+    <div class="steps-right"><div class="steps-image"><img src="image/IMG_8212.jpg" alt="Процесс работы над интерьером" data-mobile-src="image/mobile/IMG_8212.jpg" loading="lazy"></div>
     <div class="steps-note"><p>Обычно полная комплектация студии или однокомнатной квартиры занимает около 4 недель — при условии выбора позиций со склада. Индивидуальные заказы могут увеличить срок.</p>
     <p>Все этапы можно согласовывать удалённо. Мы регулярно направляем фото- и видеоотчёты, остаёмся на связи в удобных мессенджерах.</p></div></div></div>
     <div class="steps-btn"><a href="https://vk.me/club96810994" class="btn" target="_blank">Начать проект</a></div></div></section>
@@ -1656,6 +1656,7 @@
         <button class="filter-btn active" data-filter="all">Все работы</button>
         <button class="filter-btn" data-filter="full">Полная меблировка</button>
         <button class="filter-btn" data-filter="kitchen">Кухни</button>
+        <button class="filter-btn" data-filter="wardrobe">Шкафы</button>
     </div>
     <div class="portfolio-grid" id="portfolioGrid"></div></div></section>
 
@@ -1708,12 +1709,15 @@
             // Определяем, мобильное ли устройство
             const isMobile = window.innerWidth <= 768;
             
-            // Функция для подмены пути на мобильный
+            // Функция для подмены пути на мобильный (для шкафов — без смены расширения на webp)
             function getMobileSrc(originalSrc) {
                 if (!isMobile) return originalSrc;
-                // Заменяем image/ на image/mobile/ и расширение на .webp
+                // Заменяем image/ на image/mobile/
                 let mobileSrc = originalSrc.replace(/^image\//, 'image/mobile/');
-                mobileSrc = mobileSrc.replace(/\.(jpg|jpeg|png|jfif)$/i, '.webp');
+                // Меняем расширение на .webp только для НЕ-шкафов (у шкафов оставляем .jpg)
+                if (!mobileSrc.includes('/Шкафы/')) {
+                    mobileSrc = mobileSrc.replace(/\.(jpg|jpeg|png|jfif)$/i, '.webp');
+                }
                 return mobileSrc;
             }
 
@@ -1729,7 +1733,7 @@
             if (localStorage.getItem('theme') === 'dark') { body.classList.add('dark-theme'); themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
             themeToggle.addEventListener('click', () => { body.classList.toggle('dark-theme'); if (body.classList.contains('dark-theme')) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); localStorage.setItem('theme','dark'); } else { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); localStorage.setItem('theme','light'); } });
 
-            // Карусель (с мобильными фото)
+            // Карусель
             const carouselImages = [
                 { src: 'image/лицо карусель/300.jpg', alt: 'Интерьер 1' }, 
                 { src: 'image/лицо карусель/301.jpg', alt: 'Интерьер 2' },
@@ -1749,7 +1753,7 @@
                 imgEl.alt = img.alt; 
                 imgEl.loading = 'lazy'; 
                 imgEl.onerror = function() { 
-                    this.src = img.src; // Фолбэк на основное фото
+                    this.src = img.src;
                     this.onerror = function() { 
                         this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231a3b2e"/><text x="50" y="50" font-size="14" text-anchor="middle" dy=".3em" fill="white">Фото '+(idx+1)+'</text></svg>'; 
                     };
@@ -1785,20 +1789,9 @@
             }
 
             // === ПОРТФОЛИО ===
-            function getGallery(folder, start, end, ext) { 
-                let photos = []; 
-                for (let i = start; i <= end; i++) {
-                    photos.push(`image/полная меблировка/${folder}/${i}.${ext}`); 
-                }
-                return photos; 
-            }
-            function getKitchenGallery(projectNum, start, end, ext) { 
-                let photos = []; 
-                for (let i = start; i <= end; i++) {
-                    photos.push(`image/кухни/проект${projectNum}/${i}.${ext}`); 
-                }
-                return photos; 
-            }
+            function getGallery(folder, start, end, ext) { let photos = []; for (let i = start; i <= end; i++) photos.push(`image/полная меблировка/${folder}/${i}.${ext}`); return photos; }
+            function getKitchenGallery(projectNum, start, end, ext) { let photos = []; for (let i = start; i <= end; i++) photos.push(`image/кухни/проект${projectNum}/${i}.${ext}`); return photos; }
+            function getWardrobeGallery(projectNum, start, end, ext) { let photos = []; for (let i = start; i <= end; i++) photos.push(`image/Шкафы/проект${projectNum}/${i}.${ext}`); return photos; }
 
             const fullProjects = [
                 { id: 1, title: "Студия ЖК «Сенат»", description: "Комплектация 24,2 м². Современное решение с кухней-гостиной, диваном и системой хранения.", tags: ["24,2 м²", "Студия"], category: "full", gallery: getGallery("студия универ сити", 200, 239, "jpg") },
@@ -1813,7 +1806,11 @@
                 { id: 7, title: "Кухня №4", description: "Кухня в светлой гамме. Эргономичная планировка и вместительные системы хранения.", tags: ["Кухня", "Светлые тона"], category: "kitchen", gallery: getKitchenGallery(4, 700, 706, "webp") }
             ];
 
-            const allProjects = [...fullProjects, ...kitchenProjects];
+            const wardrobeProjects = [
+                { id: 8, title: "Шкаф №1", description: "Вместительный шкаф-купе с продуманной организацией пространства. Фасады МДФ, качественная фурнитура.", tags: ["Шкаф", "Система хранения"], category: "wardrobe", gallery: getWardrobeGallery(1, 801, 809, "jpg") }
+            ];
+
+            const allProjects = [...fullProjects, ...kitchenProjects, ...wardrobeProjects];
             const portfolioGridEl = document.getElementById('portfolioGrid');
             const modal = document.getElementById('galleryModal'), modalTitle = document.getElementById('modalTitle'), modalDesc = document.getElementById('modalDesc'), modalGallery = document.getElementById('modalGallery'), modalClose = document.getElementById('modalClose');
             
