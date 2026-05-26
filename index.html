@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO мета-теги -->
     <title>Мебель и Стиль | Меблировка квартир под ключ в СПб</title>
     <meta name="description" content="Комплексная меблировка квартир в Санкт-Петербурге и Кудрово. Полная меблировка студий и 1-комнатных квартир под ключ. Дизайн-проект, подбор мебели, доставка и сборка. Работаем с 2015 года.">
     <meta name="keywords" content="меблировка квартир под ключ, меблировка студии спб, комплексная меблировка, мебель для апартаментов, полная меблировка 1 комнатной квартиры, меблировка спб">
-    <!-- Open Graph для соцсетей -->
     <meta property="og:title" content="Мебель и Стиль | Меблировка квартир под ключ в СПб">
     <meta property="og:description" content="Комплексная меблировка квартир в Санкт-Петербурге. Полная меблировка студий и 1-комнатных квартир под ключ.">
     <meta property="og:image" content="image/лицо карусель/300.jpg">
     <meta property="og:type" content="website">
-    <!-- Предзагрузка для ускорения -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <!-- Иконка сайта -->
     <link rel="icon" type="image/png" sizes="32x32" href="image/Иконки/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* === ОСНОВНЫЕ СТИЛИ === */
         :root {
             --primary: #1a3b2e;
             --primary-light: #2a5a45;
@@ -40,11 +35,7 @@
             --border-dark: #2a3a32;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             color: var(--dark);
@@ -63,32 +54,15 @@
             letter-spacing: -0.02em;
         }
 
-        h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-        }
+        h2 { font-size: 2.8rem; font-weight: 700; letter-spacing: -0.03em; }
 
-        body.dark-theme {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
-        }
+        body.dark-theme { background-color: var(--bg-dark); color: var(--text-dark); }
 
-        .container {
-            width: 100%;
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
 
-        section {
-            padding: 90px 0;
-        }
+        section { padding: 90px 0; }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+        .section-title { text-align: center; margin-bottom: 50px; }
 
         .section-title h2 {
             color: var(--primary);
@@ -109,13 +83,8 @@
             background: var(--accent);
         }
 
-        body.dark-theme .section-title h2 {
-            color: var(--accent);
-        }
-
-        body.dark-theme .section-title h2::after {
-            background: var(--accent-neon);
-        }
+        body.dark-theme .section-title h2 { color: var(--accent); }
+        body.dark-theme .section-title h2::after { background: var(--accent-neon); }
 
         .section-title p {
             color: var(--gray);
@@ -126,9 +95,7 @@
             transition: color 0.3s;
         }
 
-        body.dark-theme .section-title p {
-            color: var(--text-secondary-dark);
-        }
+        body.dark-theme .section-title p { color: var(--text-secondary-dark); }
 
         .btn {
             display: inline-block;
@@ -162,43 +129,21 @@
             z-index: -1;
         }
 
-        .btn:hover::before {
-            left: 0;
-        }
+        .btn:hover::before { left: 0; }
+        .btn:hover { color: white; border-color: var(--primary); }
 
-        .btn:hover {
-            color: white;
-            border-color: var(--primary);
-        }
+        body.dark-theme .btn { color: var(--accent); border-color: var(--accent); }
+        body.dark-theme .btn::before { background: var(--accent); }
+        body.dark-theme .btn:hover { color: var(--bg-dark); }
 
-        body.dark-theme .btn {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        body.dark-theme .btn::before {
-            background: var(--accent);
-        }
-
-        body.dark-theme .btn:hover {
-            color: var(--bg-dark);
-        }
-
-        /* Кнопки в карточках пакетов */
         .package-card .btn {
             background-color: transparent !important;
             color: white !important;
             border: 2px solid var(--accent) !important;
         }
 
-        .package-card .btn::before {
-            background: var(--accent) !important;
-        }
-
-        .package-card .btn:hover {
-            color: var(--bg-dark) !important;
-            border-color: var(--accent) !important;
-        }
+        .package-card .btn::before { background: var(--accent) !important; }
+        .package-card .btn:hover { color: var(--bg-dark) !important; border-color: var(--accent) !important; }
 
         body:not(.dark-theme) .package-card .btn {
             background-color: transparent !important;
@@ -206,14 +151,8 @@
             border: 2px solid white !important;
         }
 
-        body:not(.dark-theme) .package-card .btn::before {
-            background: white !important;
-        }
-
-        body:not(.dark-theme) .package-card .btn:hover {
-            color: var(--primary) !important;
-            border-color: white !important;
-        }
+        body:not(.dark-theme) .package-card .btn::before { background: white !important; }
+        body:not(.dark-theme) .package-card .btn:hover { color: var(--primary) !important; border-color: white !important; }
 
         .theme-toggle {
             position: fixed;
@@ -240,16 +179,9 @@
             background-color: var(--primary-light);
         }
 
-        .theme-toggle i {
-            font-size: 1.3rem;
-        }
+        .theme-toggle i { font-size: 1.3rem; }
+        body.dark-theme .theme-toggle { background-color: var(--accent); color: var(--bg-dark); }
 
-        body.dark-theme .theme-toggle {
-            background-color: var(--accent);
-            color: var(--bg-dark);
-        }
-
-        /* ШАПКА */
         header {
             background-color: var(--primary) !important;
             backdrop-filter: none;
@@ -270,12 +202,7 @@
             border-bottom: 1px solid var(--border-dark);
         }
 
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-        }
+        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
 
         .logo-img {
             height: 60px;
@@ -285,20 +212,10 @@
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
-        .logo-img:hover {
-            opacity: 0.9;
-            transform: scale(1.02);
-        }
+        .logo-img:hover { opacity: 0.9; transform: scale(1.02); }
 
-        .nav {
-            display: flex;
-            list-style: none;
-            gap: 8px;
-        }
-
-        .nav li {
-            margin-left: 0;
-        }
+        .nav { display: flex; list-style: none; gap: 8px; }
+        .nav li { margin-left: 0; }
 
         .nav a {
             text-decoration: none;
@@ -312,28 +229,11 @@
             letter-spacing: 0.5px;
         }
 
-        .nav a:hover {
-            background: rgba(255,255,255,0.25);
-            color: white;
-        }
+        .nav a:hover { background: rgba(255,255,255,0.25); color: white; }
+        body.dark-theme .nav a:hover { background: rgba(92, 219, 149, 0.15); color: var(--accent-neon); }
 
-        body.dark-theme .nav a:hover {
-            background: rgba(92, 219, 149, 0.15);
-            color: var(--accent-neon);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .phone a {
-            font-weight: 700;
-            color: white;
-            font-size: 1rem;
-            text-decoration: none;
-        }
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        .phone a { font-weight: 700; color: white; font-size: 1rem; text-decoration: none; }
 
         .header-btn {
             background-color: white;
@@ -347,26 +247,13 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border: 1px solid transparent;
+            cursor: pointer;
         }
 
-        body.dark-theme .header-btn {
-            background-color: var(--accent);
-            color: var(--bg-dark);
-        }
+        body.dark-theme .header-btn { background-color: var(--accent); color: var(--bg-dark); }
+        .header-btn:hover { background-color: transparent; color: white; border-color: white; }
+        body.dark-theme .header-btn:hover { background-color: transparent; color: var(--accent); border-color: var(--accent); }
 
-        .header-btn:hover {
-            background-color: transparent;
-            color: white;
-            border-color: white;
-        }
-
-        body.dark-theme .header-btn:hover {
-            background-color: transparent;
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        /* ЛОГОТИП-ЗАГОЛОВОК */
         .full-logo {
             background-color: white;
             padding: 35px 0 25px;
@@ -375,9 +262,7 @@
             transition: background-color 0.3s;
         }
 
-        body.dark-theme .full-logo {
-            background-color: var(--bg-dark);
-        }
+        body.dark-theme .full-logo { background-color: var(--bg-dark); }
 
         .full-logo h1 {
             font-size: 4.5rem;
@@ -387,16 +272,9 @@
             margin-bottom: 10px;
         }
 
-        body.dark-theme .full-logo h1 {
-            color: var(--accent);
-        }
+        body.dark-theme .full-logo h1 { color: var(--accent); }
 
-        .logo-divider {
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            margin: 15px auto;
-        }
+        .logo-divider { width: 80px; height: 4px; background: var(--accent); margin: 15px auto; }
 
         .full-logo .subtitle {
             font-size: 1rem;
@@ -406,21 +284,10 @@
             font-weight: 500;
         }
 
-        /* ГЕРОЙ */
-        .hero {
-            padding: 50px 0 40px;
-            background: white;
-        }
+        .hero { padding: 50px 0 40px; background: white; }
+        body.dark-theme .hero { background: var(--bg-dark); }
 
-        body.dark-theme .hero {
-            background: var(--bg-dark);
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .hero-content { text-align: center; max-width: 900px; margin: 0 auto; }
 
         .hero-content .hero-title {
             font-size: 2.4rem;
@@ -430,19 +297,9 @@
             line-height: 1.2;
         }
 
-        body.dark-theme .hero-content .hero-title {
-            color: var(--accent);
-        }
-
-        .hero-content .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 30px;
-        }
-
-        body.dark-theme .hero-content .hero-subtitle {
-            color: var(--text-secondary-dark);
-        }
+        body.dark-theme .hero-content .hero-title { color: var(--accent); }
+        .hero-content .hero-subtitle { font-size: 1.2rem; color: var(--gray); margin-bottom: 30px; }
+        body.dark-theme .hero-content .hero-subtitle { color: var(--text-secondary-dark); }
 
         .hero-content .hero-text {
             font-size: 1.8rem;
@@ -451,23 +308,11 @@
             margin: 40px 0 20px;
         }
 
-        body.dark-theme .hero-content .hero-text {
-            color: var(--accent);
-        }
+        body.dark-theme .hero-content .hero-text { color: var(--accent); }
+        .hero-content .btn { margin: 20px 0; }
 
-        .hero-content .btn {
-            margin: 20px 0;
-        }
-
-        /* КАРУСЕЛЬ */
-        .carousel-section {
-            padding: 40px 0 60px;
-            background: white;
-        }
-
-        body.dark-theme .carousel-section {
-            background: var(--bg-dark);
-        }
+        .carousel-section { padding: 40px 0 60px; background: white; }
+        body.dark-theme .carousel-section { background: var(--bg-dark); }
 
         .carousel-container {
             max-width: 1400px;
@@ -477,15 +322,8 @@
             padding: 0 20px;
         }
 
-        .carousel-wrapper {
-            overflow: hidden;
-            cursor: grab;
-            padding: 20px 0;
-        }
-
-        .carousel-wrapper:active {
-            cursor: grabbing;
-        }
+        .carousel-wrapper { overflow: hidden; cursor: grab; padding: 20px 0; }
+        .carousel-wrapper:active { cursor: grabbing; }
 
         .carousel-track {
             display: flex;
@@ -514,16 +352,9 @@
             border-color: var(--accent);
         }
 
-        body.dark-theme .carousel-slide.active {
-            border-color: var(--accent-neon);
-        }
+        body.dark-theme .carousel-slide.active { border-color: var(--accent-neon); }
 
-        .carousel-slide img {
-            width: 100%;
-            height: 480px;
-            object-fit: cover;
-            display: block;
-        }
+        .carousel-slide img { width: 100%; height: 480px; object-fit: cover; display: block; }
 
         .carousel-button {
             position: absolute;
@@ -545,11 +376,7 @@
             opacity: 1;
         }
 
-        body.dark-theme .carousel-button {
-            background-color: var(--bg-card-dark);
-            border-color: var(--accent);
-            color: var(--accent);
-        }
+        body.dark-theme .carousel-button { background-color: var(--bg-card-dark); border-color: var(--accent); color: var(--accent); }
 
         .carousel-button:hover {
             background-color: var(--primary);
@@ -557,20 +384,12 @@
             transform: translateY(-50%) scale(1.05);
         }
 
-        body.dark-theme .carousel-button:hover {
-            background-color: var(--accent);
-            color: var(--bg-dark);
-        }
+        body.dark-theme .carousel-button:hover { background-color: var(--accent); color: var(--bg-dark); }
 
         .carousel-button.prev { left: 30px; }
         .carousel-button.next { right: 30px; }
 
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 25px;
-        }
+        .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 25px; }
 
         .dot {
             width: 8px;
@@ -581,35 +400,14 @@
             transition: var(--transition);
         }
 
-        body.dark-theme .dot {
-            background-color: var(--border-dark);
-        }
+        body.dark-theme .dot { background-color: var(--border-dark); }
+        .dot.active { background-color: var(--primary); width: 24px; }
+        body.dark-theme .dot.active { background-color: var(--accent-neon); }
 
-        .dot.active {
-            background-color: var(--primary);
-            width: 24px;
-        }
+        .about-block { background-color: var(--light); padding: 90px 0; }
+        body.dark-theme .about-block { background-color: var(--bg-dark); }
 
-        body.dark-theme .dot.active {
-            background-color: var(--accent-neon);
-        }
-
-        /* О НАС */
-        .about-block {
-            background-color: var(--light);
-            padding: 90px 0;
-        }
-
-        body.dark-theme .about-block {
-            background-color: var(--bg-dark);
-        }
-
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
+        .about-container { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
 
         .about-image {
             flex: 1;
@@ -620,20 +418,9 @@
             border: 1px solid var(--light-gray);
         }
 
-        body.dark-theme .about-image {
-            border-color: var(--border-dark);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
+        body.dark-theme .about-image { border-color: var(--border-dark); }
+        .about-image img { width: 100%; height: auto; display: block; }
+        .about-text { flex: 1; min-width: 300px; }
 
         .about-text .about-bold {
             font-size: 1.5rem;
@@ -643,9 +430,7 @@
             line-height: 1.3;
         }
 
-        body.dark-theme .about-text .about-bold {
-            color: var(--accent);
-        }
+        body.dark-theme .about-text .about-bold { color: var(--accent); }
 
         .about-text p {
             color: var(--gray);
@@ -654,23 +439,12 @@
             margin-bottom: 20px;
         }
 
-        body.dark-theme .about-text p {
-            color: var(--text-secondary-dark);
-        }
+        body.dark-theme .about-text p { color: var(--text-secondary-dark); }
 
-        /* СТИЛИ МЕБЕЛИ */
-        .styles {
-            background-color: white;
-        }
+        .styles { background-color: white; }
+        body.dark-theme .styles { background-color: var(--bg-dark); }
 
-        body.dark-theme .styles {
-            background-color: var(--bg-dark);
-        }
-
-        .styles-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        .styles-container { max-width: 1000px; margin: 0 auto; }
 
         .style-tabs {
             display: flex;
@@ -695,19 +469,9 @@
             letter-spacing: 1px;
         }
 
-        body.dark-theme .style-tab {
-            color: var(--text-secondary-dark);
-        }
-
-        .style-tab.active {
-            color: var(--primary);
-            border-bottom: 2px solid var(--accent);
-        }
-
-        body.dark-theme .style-tab.active {
-            color: var(--accent);
-            border-bottom-color: var(--accent-neon);
-        }
+        body.dark-theme .style-tab { color: var(--text-secondary-dark); }
+        .style-tab.active { color: var(--primary); border-bottom: 2px solid var(--accent); }
+        body.dark-theme .style-tab.active { color: var(--accent); border-bottom-color: var(--accent-neon); }
 
         .style-content {
             background: transparent;
@@ -719,20 +483,10 @@
             padding-left: 30px;
         }
 
-        body.dark-theme .style-content {
-            background: transparent;
-            border-left-color: var(--accent-neon);
-        }
+        body.dark-theme .style-content { background: transparent; border-left-color: var(--accent-neon); }
+        .style-content.active { display: block; }
 
-        .style-content.active {
-            display: block;
-        }
-
-        .style-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
+        .style-header { display: flex; align-items: center; margin-bottom: 25px; }
 
         .style-icon {
             width: 60px;
@@ -746,72 +500,23 @@
             background: rgba(26, 59, 46, 0.05) !important;
         }
 
-        body.dark-theme .style-icon {
-            background: rgba(212, 182, 138, 0.1) !important;
-        }
+        body.dark-theme .style-icon { background: rgba(212, 182, 138, 0.1) !important; }
+        .style-header h3 { font-size: 1.8rem; }
 
-        .style-header h3 {
-            font-size: 1.8rem;
-        }
+        .style-desc { color: var(--dark); line-height: 1.7; margin-bottom: 25px; font-size: 1.05rem; }
+        body.dark-theme .style-desc { color: var(--text-secondary-dark); }
 
-        .style-desc {
-            color: var(--dark);
-            line-height: 1.7;
-            margin-bottom: 25px;
-            font-size: 1.05rem;
-        }
+        .style-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+        .style-feature { display: flex; align-items: center; gap: 12px; }
+        .style-feature span { color: var(--dark); }
+        body.dark-theme .style-feature span { color: var(--text-secondary-dark); }
 
-        body.dark-theme .style-desc {
-            color: var(--text-secondary-dark);
-        }
+        .steps { background-color: white; }
+        body.dark-theme .steps { background-color: var(--bg-dark); }
 
-        .style-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .style-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .style-feature span {
-            color: var(--dark);
-        }
-
-        body.dark-theme .style-feature span {
-            color: var(--text-secondary-dark);
-        }
-
-        /* ЭТАПЫ РАБОТЫ */
-        .steps {
-            background-color: white;
-        }
-
-        body.dark-theme .steps {
-            background-color: var(--bg-dark);
-        }
-
-        .steps-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 60px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .steps-content {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .steps-right {
-            flex: 1;
-            min-width: 300px;
-        }
+        .steps-container { display: flex; align-items: flex-start; gap: 60px; flex-wrap: wrap; margin-bottom: 40px; }
+        .steps-content { flex: 1; min-width: 300px; }
+        .steps-right { flex: 1; min-width: 300px; }
 
         .steps-image {
             border-radius: var(--radius);
@@ -821,82 +526,28 @@
             border: 1px solid var(--light-gray);
         }
 
-        body.dark-theme .steps-image {
-            border-color: var(--border-dark);
-        }
+        body.dark-theme .steps-image { border-color: var(--border-dark); }
+        .steps-image img { width: 100%; height: auto; display: block; }
 
-        .steps-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .steps-note p { color: var(--dark); font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+        body.dark-theme .steps-note p { color: var(--text-secondary-dark); }
 
-        .steps-note p {
-            color: var(--dark);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
+        .steps-content .step-intro { color: var(--dark); font-size: 1.05rem; line-height: 1.7; margin-bottom: 30px; }
+        body.dark-theme .steps-content .step-intro { color: var(--text-secondary-dark); }
 
-        body.dark-theme .steps-note p {
-            color: var(--text-secondary-dark);
-        }
+        .steps-content .step-item { margin-bottom: 25px; padding-left: 20px; border-left: 2px solid var(--accent); }
+        body.dark-theme .steps-content .step-item { border-left-color: var(--accent-neon); }
 
-        .steps-content .step-intro {
-            color: var(--dark);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
+        .steps-content .step-item h3 { font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+        body.dark-theme .steps-content .step-item h3 { color: var(--accent); }
 
-        body.dark-theme .steps-content .step-intro {
-            color: var(--text-secondary-dark);
-        }
+        .steps-content .step-item p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
+        body.dark-theme .steps-content .step-item p { color: var(--text-secondary-dark); }
 
-        .steps-content .step-item {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 2px solid var(--accent);
-        }
+        .steps-btn { text-align: center; margin-top: 20px; }
 
-        body.dark-theme .steps-content .step-item {
-            border-left-color: var(--accent-neon);
-        }
-
-        .steps-content .step-item h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        body.dark-theme .steps-content .step-item h3 {
-            color: var(--accent);
-        }
-
-        .steps-content .step-item p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        body.dark-theme .steps-content .step-item p {
-            color: var(--text-secondary-dark);
-        }
-
-        .steps-btn {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* ПАКЕТЫ */
-        .packages {
-            background-color: var(--light);
-        }
-
-        body.dark-theme .packages {
-            background-color: var(--bg-dark);
-        }
+        .packages { background-color: var(--light); }
+        body.dark-theme .packages { background-color: var(--bg-dark); }
 
         .package-tabs {
             display: flex;
@@ -920,25 +571,11 @@
             letter-spacing: 1px;
         }
 
-        body.dark-theme .package-tab {
-            color: var(--text-secondary-dark);
-        }
+        body.dark-theme .package-tab { color: var(--text-secondary-dark); }
+        .package-tab.active { color: var(--primary); border: 2px solid var(--accent); }
+        body.dark-theme .package-tab.active { color: var(--accent); border-color: var(--accent-neon); }
 
-        .package-tab.active {
-            color: var(--primary);
-            border: 2px solid var(--accent);
-        }
-
-        body.dark-theme .package-tab.active {
-            color: var(--accent);
-            border-color: var(--accent-neon);
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
+        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 
         .package-card {
             background: white;
@@ -951,10 +588,7 @@
             border: 2px solid transparent;
         }
 
-        body.dark-theme .package-card {
-            background: var(--bg-card-dark);
-            border-color: transparent;
-        }
+        body.dark-theme .package-card { background: var(--bg-card-dark); border-color: transparent; }
 
         .package-card:hover {
             transform: translateY(-5px);
@@ -962,33 +596,14 @@
             border-color: var(--accent);
         }
 
-        body.dark-theme .package-card:hover {
-            border-color: var(--accent-neon);
-        }
+        body.dark-theme .package-card:hover { border-color: var(--accent-neon); }
+        .package-card.comfort-package { border: 2px solid var(--accent); }
+        body.dark-theme .package-card.comfort-package { border-color: var(--accent-neon); }
 
-        .package-card.comfort-package {
-            border: 2px solid var(--accent);
-        }
-
-        body.dark-theme .package-card.comfort-package {
-            border-color: var(--accent-neon);
-        }
-
-        .packages-grid:hover .package-card.comfort-package {
-            border-color: transparent;
-        }
-
-        .packages-grid:hover .package-card:hover {
-            border-color: var(--accent);
-        }
-
-        body.dark-theme .packages-grid:hover .package-card.comfort-package {
-            border-color: transparent;
-        }
-
-        body.dark-theme .packages-grid:hover .package-card:hover {
-            border-color: var(--accent-neon);
-        }
+        .packages-grid:hover .package-card.comfort-package { border-color: transparent; }
+        .packages-grid:hover .package-card:hover { border-color: var(--accent); }
+        body.dark-theme .packages-grid:hover .package-card.comfort-package { border-color: transparent; }
+        body.dark-theme .packages-grid:hover .package-card:hover { border-color: var(--accent-neon); }
 
         .package-header {
             padding: 30px 25px;
@@ -998,29 +613,11 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        body.dark-theme .package-header {
-            background: var(--primary);
-        }
-
-        .package-name {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .package-price {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .package-features {
-            padding: 25px;
-            flex: 1;
-        }
-
-        .feature-section {
-            margin-bottom: 25px;
-        }
+        body.dark-theme .package-header { background: var(--primary); }
+        .package-name { font-size: 1.8rem; margin-bottom: 5px; }
+        .package-price { font-size: 2rem; font-weight: 800; margin-bottom: 20px; }
+        .package-features { padding: 25px; flex: 1; }
+        .feature-section { margin-bottom: 25px; }
 
         .feature-section h4 {
             font-size: 1.1rem;
@@ -1031,17 +628,9 @@
             letter-spacing: 1px;
         }
 
-        body.dark-theme .feature-section h4 {
-            color: var(--accent);
-        }
+        body.dark-theme .feature-section h4 { color: var(--accent); }
 
-        .feature {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
+        .feature { display: flex; align-items: flex-start; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
 
         .feature i {
             color: var(--accent);
@@ -1051,17 +640,9 @@
             flex-shrink: 0;
         }
 
-        body.dark-theme .feature i {
-            color: var(--accent-neon);
-        }
-
-        .feature span {
-            color: var(--dark);
-        }
-
-        body.dark-theme .feature span {
-            color: var(--text-secondary-dark);
-        }
+        body.dark-theme .feature i { color: var(--accent-neon); }
+        .feature span { color: var(--dark); }
+        body.dark-theme .feature span { color: var(--text-secondary-dark); }
 
         .feature-note {
             margin-top: 20px;
@@ -1071,27 +652,12 @@
             color: var(--gray);
         }
 
-        body.dark-theme .feature-note {
-            color: var(--text-secondary-dark);
-            border-top-color: var(--border-dark);
-        }
+        body.dark-theme .feature-note { color: var(--text-secondary-dark); border-top-color: var(--border-dark); }
 
-        /* ПОРТФОЛИО */
-        .portfolio {
-            background-color: white;
-        }
+        .portfolio { background-color: white; }
+        body.dark-theme .portfolio { background-color: var(--bg-dark); }
 
-        body.dark-theme .portfolio {
-            background-color: var(--bg-dark);
-        }
-
-        .portfolio-filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 50px;
-        }
+        .portfolio-filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 50px; }
 
         .filter-btn {
             padding: 10px 24px;
@@ -1107,28 +673,11 @@
             font-size: 0.9rem;
         }
 
-        body.dark-theme .filter-btn {
-            border-color: var(--border-dark);
-            color: var(--text-secondary-dark);
-        }
+        body.dark-theme .filter-btn { border-color: var(--border-dark); color: var(--text-secondary-dark); }
+        .filter-btn.active, .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+        body.dark-theme .filter-btn.active, body.dark-theme .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-        .filter-btn.active,
-        .filter-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        body.dark-theme .filter-btn.active,
-        body.dark-theme .filter-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
 
         .portfolio-item {
             border-radius: var(--radius);
@@ -1140,10 +689,7 @@
             border: 1px solid var(--light-gray);
         }
 
-        body.dark-theme .portfolio-item {
-            background: var(--bg-card-dark);
-            border-color: var(--border-dark);
-        }
+        body.dark-theme .portfolio-item { background: var(--bg-card-dark); border-color: var(--border-dark); }
 
         .portfolio-item:hover {
             transform: translateY(-5px);
@@ -1151,56 +697,19 @@
             border-color: var(--accent);
         }
 
-        body.dark-theme .portfolio-item:hover {
-            border-color: var(--accent-neon);
-        }
+        body.dark-theme .portfolio-item:hover { border-color: var(--accent-neon); }
+        .portfolio-img { height: 260px; background-color: var(--light-gray); overflow: hidden; }
 
-        .portfolio-img {
-            height: 260px;
-            background-color: var(--light-gray);
-            overflow: hidden;
-        }
+        .portfolio-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .portfolio-item:hover .portfolio-img img { transform: scale(1.03); }
+        .portfolio-info { padding: 25px; }
 
-        .portfolio-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
+        .portfolio-info h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--primary); }
+        body.dark-theme .portfolio-info h3 { color: var(--accent); }
+        .portfolio-info p { color: var(--gray); margin-bottom: 15px; font-size: 0.95rem; }
+        body.dark-theme .portfolio-info p { color: var(--text-secondary-dark); }
 
-        .portfolio-item:hover .portfolio-img img {
-            transform: scale(1.03);
-        }
-
-        .portfolio-info {
-            padding: 25px;
-        }
-
-        .portfolio-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        body.dark-theme .portfolio-info h3 {
-            color: var(--accent);
-        }
-
-        .portfolio-info p {
-            color: var(--gray);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        body.dark-theme .portfolio-info p {
-            color: var(--text-secondary-dark);
-        }
-
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+        .portfolio-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
         .tag {
             padding: 4px 12px;
@@ -1213,12 +722,8 @@
             letter-spacing: 0.5px;
         }
 
-        body.dark-theme .tag {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
+        body.dark-theme .tag { color: var(--accent); border-color: var(--accent); }
 
-        /* МОДАЛЬНОЕ ОКНО */
         .modal {
             display: none;
             position: fixed;
@@ -1231,9 +736,7 @@
             overflow-y: auto;
         }
 
-        .modal.active {
-            display: block;
-        }
+        .modal.active { display: block; }
 
         .modal-content {
             max-width: 1200px;
@@ -1245,10 +748,7 @@
             border: 1px solid var(--light-gray);
         }
 
-        body.dark-theme .modal-content {
-            background: var(--bg-card-dark);
-            border-color: var(--border-dark);
-        }
+        body.dark-theme .modal-content { background: var(--bg-card-dark); border-color: var(--border-dark); }
 
         .modal-close {
             position: absolute;
@@ -1261,24 +761,11 @@
             z-index: 10;
         }
 
-        .modal-close:hover {
-            color: var(--primary);
-        }
+        .modal-close:hover { color: var(--primary); }
+        body.dark-theme .modal-close:hover { color: var(--accent-neon); }
 
-        body.dark-theme .modal-close:hover {
-            color: var(--accent-neon);
-        }
-
-        .modal-title {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-            padding-right: 40px;
-        }
-
-        body.dark-theme .modal-title {
-            color: var(--accent);
-        }
+        .modal-title { font-size: 2rem; margin-bottom: 10px; color: var(--primary); padding-right: 40px; }
+        body.dark-theme .modal-title { color: var(--accent); }
 
         .modal-desc {
             color: var(--gray);
@@ -1287,15 +774,8 @@
             border-bottom: 1px solid var(--light-gray);
         }
 
-        body.dark-theme .modal-desc {
-            color: var(--text-secondary-dark);
-            border-bottom-color: var(--border-dark);
-        }
-
-        .modal-gallery {
-            column-count: 3;
-            column-gap: 20px;
-        }
+        body.dark-theme .modal-desc { color: var(--text-secondary-dark); border-bottom-color: var(--border-dark); }
+        .modal-gallery { column-count: 3; column-gap: 20px; }
 
         .modal-gallery img {
             width: 100%;
@@ -1309,31 +789,13 @@
             border: 1px solid var(--light-gray);
         }
 
-        body.dark-theme .modal-gallery img {
-            border-color: var(--border-dark);
-        }
+        body.dark-theme .modal-gallery img { border-color: var(--border-dark); }
+        .modal-gallery img:hover { transform: scale(1.02); border-color: var(--accent); }
 
-        .modal-gallery img:hover {
-            transform: scale(1.02);
-            border-color: var(--accent);
-        }
+        .partners { background-color: var(--light); overflow: hidden; }
+        body.dark-theme .partners { background-color: var(--bg-dark); }
 
-        /* ПАРТНЕРЫ */
-        .partners {
-            background-color: var(--light);
-            overflow: hidden;
-        }
-
-        body.dark-theme .partners {
-            background-color: var(--bg-dark);
-        }
-
-        .partners-carousel-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            padding: 20px 0;
-        }
+        .partners-carousel-container { position: relative; width: 100%; overflow: hidden; padding: 20px 0; }
 
         .partners-carousel-track {
             display: flex;
@@ -1342,9 +804,7 @@
             width: max-content;
         }
 
-        .partners-carousel-track:hover {
-            animation-play-state: paused;
-        }
+        .partners-carousel-track:hover { animation-play-state: paused; }
 
         .partner-card-static {
             flex: 0 0 auto;
@@ -1361,10 +821,7 @@
             border: 1px solid var(--light-gray);
         }
 
-        body.dark-theme .partner-card-static {
-            background: var(--bg-card-dark);
-            border-color: var(--border-dark);
-        }
+        body.dark-theme .partner-card-static { background: var(--bg-card-dark); border-color: var(--border-dark); }
 
         .partner-card-static:hover {
             transform: translateY(-5px);
@@ -1372,9 +829,7 @@
             border-color: var(--accent);
         }
 
-        body.dark-theme .partner-card-static:hover {
-            border-color: var(--accent-neon);
-        }
+        body.dark-theme .partner-card-static:hover { border-color: var(--accent-neon); }
 
         .partner-logo-static {
             width: 80px;
@@ -1390,95 +845,32 @@
             font-weight: 700;
         }
 
-        body.dark-theme .partner-logo-static {
-            background-color: var(--accent);
-            color: var(--bg-dark);
-        }
+        body.dark-theme .partner-logo-static { background-color: var(--accent); color: var(--bg-dark); }
 
-        .partner-name-static {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--primary);
-        }
-
-        body.dark-theme .partner-name-static {
-            color: var(--accent);
-        }
-
-        .partner-desc-static {
-            color: var(--gray);
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        body.dark-theme .partner-desc-static {
-            color: var(--text-secondary-dark);
-        }
+        .partner-name-static { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; color: var(--primary); }
+        body.dark-theme .partner-name-static { color: var(--accent); }
+        .partner-desc-static { color: var(--gray); font-size: 0.85rem; line-height: 1.4; }
+        body.dark-theme .partner-desc-static { color: var(--text-secondary-dark); }
 
         @keyframes scrollPartners {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* КОНТАКТЫ */
-        .contact {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-        }
+        .contact { background: var(--primary); color: white; text-align: center; }
+        body.dark-theme .contact { background: var(--primary); }
+        .contact .section-title h2 { color: white; }
+        .contact .section-title h2::after { background: white; }
+        .contact .section-title p { color: rgba(255,255,255,0.7); }
 
-        body.dark-theme .contact {
-            background: var(--primary);
-        }
+        .contact-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
 
-        .contact .section-title h2 {
-            color: white;
-        }
+        .contact-buttons .btn { background-color: transparent; color: white; border-color: white; }
+        .contact-buttons .btn::before { background: white; }
+        .contact-buttons .btn:hover { color: var(--primary); }
 
-        .contact .section-title h2::after {
-            background: white;
-        }
-
-        .contact .section-title p {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .contact-buttons .btn {
-            background-color: transparent;
-            color: white;
-            border-color: white;
-        }
-
-        .contact-buttons .btn::before {
-            background: white;
-        }
-
-        .contact-buttons .btn:hover {
-            color: var(--primary);
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        .contact-info { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-top: 50px; }
+        .contact-item { display: flex; align-items: center; gap: 15px; }
 
         .contact-icon {
             width: 50px;
@@ -1491,53 +883,17 @@
             font-size: 1.2rem;
         }
 
-        /* ФУТЕР */
-        footer {
-            background-color: #0a0f0c;
-            color: rgba(255,255,255,0.6);
-            padding: 60px 0 30px;
-        }
+        footer { background-color: #0a0f0c; color: rgba(255,255,255,0.6); padding: 60px 0 30px; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-logo { font-size: 2rem; font-weight: 700; color: white; margin-bottom: 15px; }
+        .footer-container ul { list-style: none; }
+        .footer-container li { margin-bottom: 12px; }
 
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
+        .footer-container a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+        .footer-container a:hover { color: var(--accent-neon); }
 
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 15px;
-        }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; }
 
-        .footer-container ul {
-            list-style: none;
-        }
-
-        .footer-container li {
-            margin-bottom: 12px;
-        }
-
-        .footer-container a {
-            color: rgba(255,255,255,0.5);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-container a:hover {
-            color: var(--accent-neon);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.85rem;
-        }
-
-        /* АДАПТИВНОСТЬ */
         @media (max-width: 1400px) {
             .carousel-slide { flex: 0 0 calc(75% - 8px); }
             .carousel-slide img { height: 440px; }
@@ -1561,10 +917,7 @@
             .header-container { flex-direction: column; padding: 15px 0; }
             .nav { flex-wrap: wrap; justify-content: center; }
             .header-right { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
-            .full-logo { 
-                margin-top: 180px; 
-                padding: 30px 0 20px;
-            }
+            .full-logo { margin-top: 180px; padding: 30px 0 20px; }
             .full-logo h1 { font-size: 3rem; }
             .hero-content .hero-title { font-size: 1.8rem; }
             .hero-content .hero-text { font-size: 1.5rem; }
@@ -1574,31 +927,192 @@
             .modal-gallery { column-count: 2; }
         }
         @media (max-width: 480px) {
-            .full-logo { 
-                margin-top: 200px; 
-                padding: 25px 0 15px;
-            }
+            .full-logo { margin-top: 200px; padding: 25px 0 15px; }
             .full-logo h1 { font-size: 2.2rem; }
             .carousel-slide { flex: 0 0 calc(95% - 5px); }
             .carousel-slide img { height: 280px; }
             .modal-gallery { column-count: 1; }
         }
+
+        .order-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 15, 12, 0.85);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .order-popup-overlay.active { display: flex; }
+
+        .order-popup {
+            background: white;
+            border-radius: var(--radius);
+            padding: 45px 40px 40px;
+            max-width: 460px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 40px 60px rgba(0,0,0,0.3);
+            animation: popupSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body.dark-theme .order-popup { background: var(--bg-card-dark); }
+
+        @keyframes popupSlideIn {
+            from { opacity: 0; transform: translateY(-30px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .order-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: color 0.3s;
+            line-height: 1;
+            background: none;
+            border: none;
+        }
+
+        .order-popup-close:hover { color: var(--primary); }
+        body.dark-theme .order-popup-close:hover { color: var(--accent-neon); }
+
+        .order-popup-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        body.dark-theme .order-popup-title { color: var(--accent); }
+        .order-popup-subtitle { color: var(--gray); font-size: 0.95rem; margin-bottom: 25px; }
+        body.dark-theme .order-popup-subtitle { color: var(--text-secondary-dark); }
+
+        .order-form-group { margin-bottom: 18px; }
+
+        .order-form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-theme .order-form-group label { color: var(--text-dark); }
+
+        .order-form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            background: var(--light);
+            outline: none;
+            color: var(--dark);
+        }
+
+        body.dark-theme .order-form-group input {
+            background: var(--bg-dark);
+            border-color: var(--border-dark);
+            color: var(--text-dark);
+        }
+
+        .order-form-group input:focus { border-color: var(--accent); background: white; }
+        body.dark-theme .order-form-group input:focus { border-color: var(--accent-neon); background: var(--bg-card-dark); }
+        .order-form-group input::placeholder { color: var(--gray); opacity: 0.7; }
+
+        .contact-methods { display: flex; gap: 10px; flex-wrap: wrap; }
+        .contact-method-option { flex: 1; min-width: 90px; }
+        .contact-method-option input { display: none; }
+
+        .contact-method-option label {
+            display: block;
+            padding: 10px 8px;
+            text-align: center;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        body.dark-theme .contact-method-option label { border-color: var(--border-dark); color: var(--text-secondary-dark); }
+
+        .contact-method-option input:checked + label {
+            border-color: var(--primary);
+            background: rgba(26, 59, 46, 0.05);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        body.dark-theme .contact-method-option input:checked + label {
+            border-color: var(--accent);
+            background: rgba(212, 182, 138, 0.1);
+            color: var(--accent);
+        }
+
+        .contact-method-option label:hover { border-color: var(--accent); }
+        .order-popup .btn { width: 100%; margin-top: 6px; }
+
+        .order-popup-success { display: none; text-align: center; padding: 30px 0 10px; }
+        .order-popup-success.active { display: block; }
+
+        .order-popup-success i { font-size: 3.5rem; color: var(--accent); margin-bottom: 18px; }
+        body.dark-theme .order-popup-success i { color: var(--accent-neon); }
+
+        .order-popup-success h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        body.dark-theme .order-popup-success h3 { color: var(--accent); }
+        .order-popup-success p { color: var(--gray); font-size: 1rem; }
+        body.dark-theme .order-popup-success p { color: var(--text-secondary-dark); }
+
+        @media (max-width: 480px) {
+            .order-popup { padding: 35px 25px 30px; }
+            .order-popup-title { font-size: 1.3rem; }
+        }
     </style>
-    
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
-            m[i]=m[i]function(){(m[i].a=m[i].a[]).push(arguments)};
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
         })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109326581', 'ym');
 
-        ym(109326581, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+        ym(109326581, 'init', {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true,
+            ecommerce:"dataLayer"
+        });
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/109326581" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-    
+
 </head>
 <body>
     <div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
@@ -1615,27 +1129,24 @@
             </ul>
             <div class="header-right">
                 <div class="phone"><a href="tel:+78129258856"><i class="fas fa-phone"></i> +7 (812) 925 88-56</a></div>
-                <a href="https://vk.me/club96810994" class="header-btn" target="_blank">Заказать</a>
+                <a href="javascript:void(0)" class="header-btn" onclick="openOrderPopup('Заказать')">Заказать</a>
             </div>
         </div>
     </header>
     <div class="full-logo"><div class="container"><h1>МЕБЕЛЬ и СТИЛЬ</h1><div class="logo-divider"></div><div class="subtitle">Меблировка под ключ</div></div></div>
 
-    <!-- КАРУСЕЛЬ -->
     <section class="carousel-section"><div class="carousel-container"><div class="carousel-wrapper" id="carouselWrapper"><div class="carousel-track" id="carouselTrack"></div></div>
     <button class="carousel-button prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
     <button class="carousel-button next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
     <div class="carousel-dots" id="carouselDots"></div></div></section>
 
-    <!-- ГЕРОЙ -->
     <section class="hero" id="hero"><div class="container"><div class="hero-content">
         <div class="hero-title">Интерьер, в который хочется возвращаться</div>
         <div class="hero-subtitle">Полный цикл меблировки квартир — от идеи до передачи ключей. Работаем в Санкт-Петербурге и Ленобласти.</div>
-        <a href="https://vk.me/club96810994" class="btn" target="_blank">Рассчитать стоимость</a>
+        <a href="javascript:void(0)" class="btn" onclick="openOrderPopup('Рассчитать стоимость')">Рассчитать стоимость</a>
         <div class="hero-text">Доверяя обустройство профессионалам, вы получаете не просто мебель, а готовое пространство для жизни.</div>
     </div></div></section>
 
-    <!-- О НАС -->
     <section class="about-block" id="about"><div class="container"><div class="about-container">
         <div class="about-image"><img src="image/photo_5233431171193051302_y.jpg" data-mobile-src="image/mobile/photo_5233431171193051302_y.webp" alt="О компании Мебель и Стиль" loading="lazy"></div>
         <div class="about-text">
@@ -1643,11 +1154,10 @@
             <p>За каждым проектом стоит индивидуальный подход и внимание к деталям. Мы не просто расставляем мебель — мы создаём целостное пространство, где всё продумано до мелочей.</p>
             <p>Сотрудничаем с проверенными фабриками и поставщиками, поэтому можем предложить широкий выбор материалов и решений под любой бюджет. А в наших салонах вы сможете лично оценить качество представленных образцов.</p>
             <p>Мы сопровождаем проект на всех этапах, избавляя вас от лишних хлопот. Наш принцип — ответственный подход и искренняя забота о результате.</p>
-            <a href="https://vk.me/club96810994" class="btn" target="_blank">Обсудить проект</a>
+            <a href="javascript:void(0)" class="btn" onclick="openOrderPopup('Обсудить проект')">Обсудить проект</a>
         </div>
     </div></div></section>
 
-    <!-- ЭТАПЫ РАБОТЫ -->
     <section class="steps" id="steps"><div class="container"><div class="section-title"><h2>Как мы работаем</h2><p>Прозрачный процесс, в котором вы всегда в курсе происходящего.</p></div>
     <div class="steps-container"><div class="steps-content"><div class="step-intro">Меблировка под ключ — это возможность получить готовый интерьер, не погружаясь в сотни технических нюансов. Мы берём на себя все заботы: от замеров до расстановки декора.</div>
     <div class="step-item"><h3>Знакомство и замеры</h3><p>Обсуждаем ваши пожелания, анализируем особенности помещения, делаем точные замеры.</p></div>
@@ -1658,14 +1168,12 @@
     <div class="steps-right"><div class="steps-image"><img src="image/IMG_8212.jpg" data-mobile-src="image/mobile/IMG_8212.webp" alt="Процесс работы над интерьером" loading="lazy"></div>
     <div class="steps-note"><p>Обычно полная комплектация студии или однокомнатной квартиры занимает около 4 недель — при условии выбора позиций со склада. Индивидуальные заказы могут увеличить срок.</p>
     <p>Все этапы можно согласовывать удалённо. Мы регулярно направляем фото- и видеоотчёты, остаёмся на связи в удобных мессенджерах.</p></div></div></div>
-    <div class="steps-btn"><a href="https://vk.me/club96810994" class="btn" target="_blank">Начать проект</a></div></div></section>
+    <div class="steps-btn"><a href="javascript:void(0)" class="btn" onclick="openOrderPopup('Начать проект')">Начать проект</a></div></div></section>
 
-    <!-- ПАКЕТЫ -->
     <section class="packages" id="packages"><div class="container"><div class="section-title"><h2>Готовые решения</h2><p>Два варианта комплектации для квартир с чистовой отделкой. Стоимость указана за базовый набор.</p></div>
     <div class="package-tabs"><button class="package-tab active" data-tab="studio">Студия</button><button class="package-tab" data-tab="1-room">1-комнатная</button></div>
     <div class="packages-grid" id="packagesGrid"></div></div></section>
 
-    <!-- НАШИ РАБОТЫ -->
     <section class="portfolio" id="portfolio"><div class="container"><div class="section-title"><h2>Реализованные проекты</h2><p>Примеры готовых интерьеров — от небольших студий до просторных квартир.</p></div>
     <div class="portfolio-filters">
         <button class="filter-btn active" data-filter="all">Все работы</button>
@@ -1675,10 +1183,8 @@
     </div>
     <div class="portfolio-grid" id="portfolioGrid"></div></div></section>
 
-    <!-- МОДАЛЬНОЕ ОКНО -->
     <div class="modal" id="galleryModal"><div class="modal-content"><span class="modal-close" id="modalClose">&times;</span><h3 class="modal-title" id="modalTitle"></h3><p class="modal-desc" id="modalDesc"></p><div class="modal-gallery" id="modalGallery"></div></div></div>
 
-    <!-- СТИЛИ МЕБЕЛИ -->
     <section class="styles" id="styles"><div class="container"><div class="section-title"><h2>Стилевые направления</h2><p>Единая концепция помогает создать гармоничное пространство, где все элементы дополняют друг друга.</p></div>
     <div class="styles-container"><div class="style-tabs">
         <button class="style-tab active" data-style="scandinavian">Скандинавский</button>
@@ -1700,11 +1206,9 @@
     <div class="style-features"><div class="style-feature"><i class="fas fa-check" style="color:#b88b8b;"></i><span>Натуральное дерево</span></div><div class="style-feature"><i class="fas fa-check" style="color:#b88b8b;"></i><span>Сдержанный декор</span></div><div class="style-feature"><i class="fas fa-check" style="color:#b88b8b;"></i><span>Качественная фурнитура</span></div><div class="style-feature"><i class="fas fa-check" style="color:#b88b8b;"></i><span>Благородные оттенки</span></div></div></div>
     </div></div></section>
 
-    <!-- ПАРТНЕРЫ -->
     <section class="partners" id="partners"><div class="container"><div class="section-title"><h2>С кем мы работаем</h2><p>Сотрудничаем с ведущими мебельными фабриками СПб и проверенными производителями, за качество которых мы ручаемся.</p></div>
     <div class="partners-carousel-container"><div class="partners-carousel-track" id="partnersTrack"></div></div></div></section>
 
-    <!-- КОНТАКТЫ -->
     <section class="contact" id="contact"><div class="container"><div class="section-title"><h2>Остались вопросы?</h2><p>Свяжитесь с нами — поможем определиться с выбором и рассчитаем стоимость. Если вы ищете, где заказать полную меблировку квартиры в новостройке СПб — вы по адресу.</p></div>
     <div class="contact-buttons">
         <a href="https://vk.me/club96810994" class="btn" target="_blank"><i class="fab fa-vk"></i> Написать в ВК</a>
@@ -1714,40 +1218,76 @@
     <div class="contact-item"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><div style="font-weight:600;">Режим работы</div><div>Пн-Пт: 9:00–20:00, Сб: 10:00–18:00</div></div></div>
     <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><div style="font-weight:600;">Email</div><div>brwmebelspb@yandex.ru</div></div></div></div></div></section>
 
-    <!-- ФУТЕР -->
+    <div class="order-popup-overlay" id="orderPopup">
+        <div class="order-popup">
+            <button class="order-popup-close" id="orderPopupClose">&times;</button>
+            <div class="order-popup-title">Оставить заявку</div>
+            <div class="order-popup-subtitle">Заполните форму, и мы свяжемся с вами в ближайшее время</div>
+
+            <form id="orderForm">
+                <div class="order-form-group">
+                    <label for="orderName">Ваше имя</label>
+                    <input type="text" id="orderName" name="name" placeholder="Иванов Иван" required>
+                </div>
+                <div class="order-form-group">
+                    <label for="orderPhone">Номер телефона</label>
+                    <input type="tel" id="orderPhone" name="phone" placeholder="+7 (999) 999-99-99" required>
+                </div>
+                <div class="order-form-group">
+                    <label>Удобный способ связи</label>
+                    <div class="contact-methods">
+                        <div class="contact-method-option">
+                            <input type="radio" id="methodCall" name="contactMethod" value="Звонок">
+                            <label for="methodCall">📞 Звонок</label>
+                        </div>
+                        <div class="contact-method-option">
+                            <input type="radio" id="methodVK" name="contactMethod" value="Чат в ВК">
+                            <label for="methodVK">💬 Чат в ВК</label>
+                        </div>
+                        <div class="contact-method-option">
+                            <input type="radio" id="methodMax" name="contactMethod" value="Чат в MAX">
+                            <label for="methodMax">📱 Чат в MAX</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+
+            <div class="order-popup-success" id="orderSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h3>Спасибо!</h3>
+                <p>Мы получили вашу заявку и свяжемся с вами в ближайшее время.</p>
+            </div>
+        </div>
+    </div>
+
     <footer><div class="container"><div class="footer-container"><div><div class="footer-logo">Мебель и Стиль</div><p>Комплексная меблировка квартир в Санкт-Петербурге и области. Полная меблировка студий и 1-комнатных квартир под ключ. На рынке с 2015 года.</p></div>
     <div><h3 style="color:white;margin-bottom:20px;">Разделы</h3><ul><li><a href="#about">О нас</a></li><li><a href="#steps">Этапы</a></li><li><a href="#packages">Пакеты</a></li><li><a href="#portfolio">Проекты</a></li><li><a href="#styles">Стили</a></li><li><a href="#partners">Партнёры</a></li></ul></div>
     <div><h3 style="color:white;margin-bottom:20px;">Контакты</h3><ul><li><i class="fas fa-phone" style="margin-right:10px;"></i>+7 (812) 925 88-56</li><li><i class="fas fa-envelope" style="margin-right:10px;"></i>brwmebelspb@yandex.ru</li><li><i class="fas fa-map-marker-alt" style="margin-right:10px;"></i>г. Кудрово, ул. Промышленная, д.3 к.3, этаж 2</li></ul></div></div><div class="copyright">© 2026 Мебель и Стиль. Все права защищены.</div></div></footer>
 
     <script>
         (function() {
-            // Определяем, мобильное ли устройство
+            const SERVER_URL = 'https://server-zjg9.onrender.com/send';
+
             const isMobile = window.innerWidth <= 768;
             
-            // Функция для подмены пути на мобильный
             function getMobileSrc(originalSrc) {
                 if (!isMobile) return originalSrc;
                 let mobileSrc = originalSrc.replace(/^image\//, 'image/mobile/');
-                // Для Шкафов не меняем расширение
                 if (!mobileSrc.includes('/Шкафы/')) {
                     mobileSrc = mobileSrc.replace(/\.(jpg|jpeg|png|jfif)$/i, '.webp');
                 }
                 return mobileSrc;
             }
 
-            // Применяем подмену для статических изображений
             document.querySelectorAll('img[data-mobile-src]').forEach(img => {
-                if (isMobile) {
-                    img.src = img.getAttribute('data-mobile-src');
-                }
+                if (isMobile) img.src = img.getAttribute('data-mobile-src');
             });
 
-            // Тема
             const themeToggle = document.getElementById('themeToggle'), body = document.body, themeIcon = themeToggle.querySelector('i');
             if (localStorage.getItem('theme') === 'dark') { body.classList.add('dark-theme'); themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
             themeToggle.addEventListener('click', () => { body.classList.toggle('dark-theme'); if (body.classList.contains('dark-theme')) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); localStorage.setItem('theme','dark'); } else { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); localStorage.setItem('theme','light'); } });
 
-            // Карусель
             const carouselImages = [
                 { src: 'image/лицо карусель/300.jpg', alt: 'Интерьер 1' }, 
                 { src: 'image/лицо карусель/301.jpg', alt: 'Интерьер 2' },
@@ -1760,17 +1300,10 @@
             const track = document.getElementById('carouselTrack'), dotsContainer = document.getElementById('carouselDots'), wrapper = document.getElementById('carouselWrapper');
             const prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
             carouselImages.forEach((img, idx) => { 
-                let slide = document.createElement('div'); 
-                slide.className = 'carousel-slide'; 
-                let imgEl = document.createElement('img'); 
-                imgEl.src = getMobileSrc(img.src); 
-                imgEl.alt = img.alt; 
-                imgEl.loading = 'lazy'; 
-                imgEl.onerror = function() { 
-                    this.src = img.src;
-                }; 
-                slide.appendChild(imgEl); 
-                track.appendChild(slide); 
+                let slide = document.createElement('div'); slide.className = 'carousel-slide'; 
+                let imgEl = document.createElement('img'); imgEl.src = getMobileSrc(img.src); imgEl.alt = img.alt; imgEl.loading = 'lazy'; 
+                imgEl.onerror = function() { this.src = img.src; }; 
+                slide.appendChild(imgEl); track.appendChild(slide); 
             });
             carouselImages.forEach((_, idx) => { let dot = document.createElement('span'); dot.className = 'dot' + (idx===0?' active':''); dot.setAttribute('data-index',idx); dotsContainer.appendChild(dot); });
             let slides = document.querySelectorAll('.carousel-slide'), dots = document.querySelectorAll('.dot'), currentIndex = 0, isDragging = false, startX = 0, dragStartOffset = 0;
@@ -1785,21 +1318,18 @@
             window.addEventListener('resize',()=>updateCarousel(false));
             setTimeout(()=>updateCarousel(false),100);
 
-            // Стили табы
             document.querySelectorAll('.style-tab').forEach(tab=>{ tab.addEventListener('click',function(){ document.querySelectorAll('.style-tab').forEach(t=>t.classList.remove('active')); document.querySelectorAll('.style-content').forEach(c=>c.classList.remove('active')); this.classList.add('active'); document.getElementById(this.dataset.style).classList.add('active'); }); });
 
-            // Пакеты
             const packagesGrid = document.getElementById('packagesGrid');
             if(packagesGrid){
                 packagesGrid.innerHTML = `
                 <div class="package-card studio-package"><div class="package-header"><h3 class="package-name">Стандарт</h3><div class="package-price">от 349 000 ₽</div><a href="https://brwmebel.github.io/apartment-studio/" class="btn" style="width:100%;" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Кухонный гарнитур прямой до 1800 мм</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка кухонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая (2 комфорки)</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка наклонная/встраиваемая</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Диван еврокнижка</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф распашной двухстворчатый</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод/тумба под ТВ</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол прямоугольный обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, зеркалом и обувницей</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 24 900 ₽</div></div></div>
-                <div class="package-card studio-package comfort-package"><div class="package-header"><h3 class="package-name">Комфорт</h3><div class="package-price">от 450 000 ₽</div><a href="https://vk.me/club96810994" class="btn" style="width:100%;" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект кухни (цвет фасадов на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск. камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск. камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка наклонная/встраиваемая</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Диван ортопедический (еврокнижка/аккордеон)</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф распашной двухстворчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод/тумба под ТВ (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, зеркалом и обувницей (на выбор)</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 24 900 ₽</div></div></div>
+                <div class="package-card studio-package comfort-package"><div class="package-header"><h3 class="package-name">Комфорт</h3><div class="package-price">от 450 000 ₽</div><a href="javascript:void(0)" class="btn" style="width:100%;" onclick="openOrderPopup('Комфорт (студия)')">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект кухни (цвет фасадов на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск. камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск. камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка наклонная/встраиваемая</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Диван ортопедический (еврокнижка/аккордеон)</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф распашной двухстворчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод/тумба под ТВ (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, зеркалом и обувницей (на выбор)</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 24 900 ₽</div></div></div>
                 <div class="package-card one-room-package" style="display:none;"><div class="package-header"><h3 class="package-name">Стандарт</h3><div class="package-price">от 399 000 ₽</div><a href="https://brwmebel.github.io/1_room/" class="btn" style="width:100%;" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект прямой кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка встроенная/наклонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки (модель на выбор)</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Тумба под тв</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div><div class="feature"><i class="fas fa-check"></i><span>Диван раскладной /кровать + матрас</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф трехстворчатый или 4х створчатый</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод</span></div><div class="feature"><i class="fas fa-check"></i><span>2 прикроватные тумбы</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая с крючками для одежды, полкой для головных уборов и обувницей</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 24 900 ₽</div></div></div>
-                <div class="package-card one-room-package comfort-package" style="display:none;"><div class="package-header"><h3 class="package-name">Комфорт</h3><div class="package-price">от 525 000 ₽</div><a href="https://vk.me/club96810994" class="btn" style="width:100%;" target="_blank">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект прямой кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка встроенная/наклонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный (цвет модель на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки (модель на выбор)</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Тумба под тв / тумба комбинированная (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div><div class="feature"><i class="fas fa-check"></i><span>Диван раскладной ортопедический/кровать/кровать мягкая + матрас</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф трехстворчатый или 4х створчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>2 прикроватные тумбы</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая комбинированная/шкаф купе</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 24 900 ₽</div></div></div>`;
+                <div class="package-card one-room-package comfort-package" style="display:none;"><div class="package-header"><h3 class="package-name">Комфорт</h3><div class="package-price">от 525 000 ₽</div><a href="javascript:void(0)" class="btn" style="width:100%;" onclick="openOrderPopup('Комфорт (1-комнатная)')">Выбрать пакет</a></div><div class="package-features"><div class="feature-section"><h4>Кухня</h4><div class="feature"><i class="fas fa-check"></i><span>Индивидуальный проект прямой кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Мойка иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Смеситель иск.камень</span></div><div class="feature"><i class="fas fa-check"></i><span>Варочная панель электрическая</span></div><div class="feature"><i class="fas fa-check"></i><span>Вытяжка встроенная/наклонная</span></div><div class="feature"><i class="fas fa-check"></i><span>Холодильник отдельностоящий NO FROST</span></div><div class="feature"><i class="fas fa-check"></i><span>Духовой шкаф встраиваемый</span></div><div class="feature"><i class="fas fa-check"></i><span>Микроволновая печь</span></div><div class="feature"><i class="fas fa-check"></i><span>Стол обеденный (цвет модель на выбор)</span></div><div class="feature"><i class="fas fa-check"></i><span>Стулья 2 штуки (модель на выбор)</span></div></div><div class="feature-section"><h4>Гостиная / Спальня</h4><div class="feature"><i class="fas fa-check"></i><span>Тумба под тв / тумба комбинированная (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Карниз</span></div><div class="feature"><i class="fas fa-check"></i><span>Тюль</span></div><div class="feature"><i class="fas fa-check"></i><span>Шторы светонепроницаемые блэкаут</span></div><div class="feature"><i class="fas fa-check"></i><span>Диван раскладной ортопедический/кровать/кровать мягкая + матрас</span></div><div class="feature"><i class="fas fa-check"></i><span>Шкаф трехстворчатый или 4х створчатый (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>Комод (доводчики)</span></div><div class="feature"><i class="fas fa-check"></i><span>2 прикроватные тумбы</span></div></div><div class="feature-section"><h4>Прихожая</h4><div class="feature"><i class="fas fa-check"></i><span>Прихожая комбинированная/шкаф купе</span></div></div><div class="feature-section"><h4>В стоимость включены</h4><div class="feature"><i class="fas fa-check"></i><span>Дизайн-проект</span></div><div class="feature"><i class="fas fa-check"></i><span>Доставка, сборка и установка, перенос точек электричества в зоне кухни</span></div><div class="feature"><i class="fas fa-check"></i><span>Клининг</span></div></div><div class="feature-note"><i class="fas fa-plus-circle"></i> Дополнительные услуги по согласованию: Расширенный комплект для подготовки квартиры — от 24 900 ₽</div></div></div>`;
                 document.querySelectorAll('.package-tab').forEach(t=>t.addEventListener('click',function(){ document.querySelectorAll('.package-tab').forEach(tt=>tt.classList.remove('active')); this.classList.add('active'); let isStudio=this.dataset.tab==='studio'; document.querySelectorAll('.studio-package').forEach(p=>p.style.display=isStudio?'block':'none'); document.querySelectorAll('.one-room-package').forEach(p=>p.style.display=isStudio?'none':'block'); })); 
             }
 
-            // === ПОРТФОЛИО ===
             function getGallery(folder, start, end, ext) { let photos = []; for (let i = start; i <= end; i++) photos.push(`image/полная меблировка/${folder}/${i}.${ext}`); return photos; }
             function getKitchenGallery(projectNum, start, end, ext) { let photos = []; for (let i = start; i <= end; i++) photos.push(`image/кухни/проект${projectNum}/${i}.${ext}`); return photos; }
             function getWardrobeGallery(projectNum, start, end, ext) { let photos = []; for (let i = start; i <= end; i++) photos.push(`image/Шкафы/проект${projectNum}/${i}.${ext}`); return photos; }
@@ -1826,19 +1356,13 @@
             const modal = document.getElementById('galleryModal'), modalTitle = document.getElementById('modalTitle'), modalDesc = document.getElementById('modalDesc'), modalGallery = document.getElementById('modalGallery'), modalClose = document.getElementById('modalClose');
             
             function openModal(p) { 
-                modalTitle.textContent = p.title; 
-                modalDesc.textContent = p.description; 
-                modalGallery.innerHTML = ''; 
+                modalTitle.textContent = p.title; modalDesc.textContent = p.description; modalGallery.innerHTML = ''; 
                 p.gallery.forEach(src => { 
-                    let i = document.createElement('img'); 
-                    i.src = getMobileSrc(src); 
-                    i.alt = p.title; 
-                    i.loading = 'lazy'; 
+                    let i = document.createElement('img'); i.src = getMobileSrc(src); i.alt = p.title; i.loading = 'lazy'; 
                     i.onerror = function() { this.src = src; }; 
                     modalGallery.appendChild(i); 
                 }); 
-                modal.classList.add('active'); 
-                document.body.style.overflow = 'hidden'; 
+                modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
             }
             
             function closeModal() { modal.classList.remove('active'); document.body.style.overflow = ''; }
@@ -1850,8 +1374,7 @@
                 portfolioGridEl.innerHTML = ''; 
                 let f = filter === 'all' ? allProjects : allProjects.filter(p => p.category === filter); 
                 f.forEach(proj => { 
-                    let item = document.createElement('div'); 
-                    item.className = 'portfolio-item'; 
+                    let item = document.createElement('div'); item.className = 'portfolio-item'; 
                     const firstImgSrc = getMobileSrc(proj.gallery[0]);
                     item.innerHTML = `<div class="portfolio-img"><img src="${firstImgSrc}" alt="${proj.title}" loading="lazy" onerror="this.src='${proj.gallery[0]}'"></div><div class="portfolio-info"><h3>${proj.title}</h3><p>${proj.description}</p><div class="portfolio-tags">${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>`; 
                     item.addEventListener('click', () => openModal(proj)); 
@@ -1862,11 +1385,138 @@
             document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', function() { document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); renderPortfolio(this.dataset.filter); }));
             renderPortfolio('all');
 
-            // Партнеры
             const partners = [{ name:"БРВ Мебель", desc:"Белорусская мебель" },{ name:"К2 Мебель", desc:"Кухни и шкафы по индивидуальному проекту" },{ name:"Мебель Виват", desc:"Кухни и мебель на заказ" },{ name:"Глазов-мебель", desc:"Классическая и современная мебель" },{ name:"Ивару", desc:"Корпусная мебель от производителя" },{ name:"Мебельград", desc:"Мебельный гипермаркет" },{ name:"Натура Вера", desc:"Матрасы и мягкие кровати" },{ name:"Пинскдрев", desc:"Группа компаний мебели из Беларуси" },{ name:"Гомельдрев", desc:"Белорусская мебель из массива" },{ name:"Грин Мебель", desc:"Мебель из массива сосны" },{ name:"Корретто", desc:"Фабрика матрасов и кроватей" },{ name:"СРП", desc:"Обеденные группы - столы, стулья на металлокаркасе" }];
             const trackP = document.getElementById('partnersTrack'), colors = ['#1a3b2e','#2a5a45','#3d7a5a','#5a9b6e','#4a7c5c','#3b6a4a','#2c5a3e','#1e4a32','#2a6a4a','#3e7a5a','#2e5a4a','#1e3e2e'];
             partners.forEach((p,i)=>{ let c=document.createElement('div'); c.className='partner-card-static'; c.innerHTML = `<div class="partner-logo-static" style="background-color:${colors[i%colors.length]}">${p.name.charAt(0)}</div><div class="partner-name-static">${p.name}</div><div class="partner-desc-static">${p.desc}</div>`; trackP.appendChild(c); });
             partners.forEach((p,i)=>{ let c=document.createElement('div'); c.className='partner-card-static'; c.innerHTML = `<div class="partner-logo-static" style="background-color:${colors[i%colors.length]}">${p.name.charAt(0)}</div><div class="partner-name-static">${p.name}</div><div class="partner-desc-static">${p.desc}</div>`; trackP.appendChild(c); });
+
+            // ========== МАСКА ТЕЛЕФОНА ==========
+            const phoneInput = document.getElementById('orderPhone');
+            
+            phoneInput.addEventListener('input', function(e) {
+                let value = this.value.replace(/[^\d]/g, '');
+                if (value.length > 11) value = value.slice(0, 11);
+                
+                let formatted = '+7';
+                if (value.length > 1) formatted += ' (' + value.slice(1, 4);
+                if (value.length >= 4) formatted += ') ' + value.slice(4, 7);
+                if (value.length >= 7) formatted += '-' + value.slice(7, 9);
+                if (value.length >= 9) formatted += '-' + value.slice(9, 11);
+                
+                this.value = formatted;
+            });
+
+            phoneInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace') {
+                    e.preventDefault();
+                    let value = this.value.replace(/[^\d]/g, '');
+                    const cursorPos = this.selectionStart;
+                    
+                    // Находим индекс цифры перед курсором
+                    let digitsBeforeCursor = 0;
+                    for (let i = 0; i < cursorPos; i++) {
+                        if (/[0-9]/.test(this.value[i])) digitsBeforeCursor++;
+                    }
+                    
+                    // Удаляем цифру перед курсором
+                    if (digitsBeforeCursor > 0) {
+                        value = value.slice(0, digitsBeforeCursor - 1) + value.slice(digitsBeforeCursor);
+                    }
+                    
+                    // Форматируем заново
+                    let formatted = '+7';
+                    if (value.length > 1) formatted += ' (' + value.slice(1, 4);
+                    if (value.length >= 4) formatted += ') ' + value.slice(4, 7);
+                    if (value.length >= 7) formatted += '-' + value.slice(7, 9);
+                    if (value.length >= 9) formatted += '-' + value.slice(9, 11);
+                    
+                    this.value = formatted;
+                    
+                    // Ставим курсор на правильную позицию
+                    let targetPos = 2;
+                    if (digitsBeforeCursor > 1) targetPos = 4;
+                    if (digitsBeforeCursor > 4) targetPos = 9;
+                    if (digitsBeforeCursor > 7) targetPos = 12;
+                    if (digitsBeforeCursor > 9) targetPos = 15;
+                    if (digitsBeforeCursor <= 1) targetPos = 2;
+                    
+                    this.setSelectionRange(Math.max(2, targetPos - 2), Math.max(2, targetPos - 2));
+                    return;
+                }
+                
+                if (e.key === 'Delete' || e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'Tab') return;
+                if (!/[0-9]/.test(e.key)) e.preventDefault();
+            });
+
+            // ========== ПОПАП С ФОРМОЙ ЗАЯВКИ ==========
+            const orderPopup = document.getElementById('orderPopup');
+            const orderPopupClose = document.getElementById('orderPopupClose');
+            const orderForm = document.getElementById('orderForm');
+            const orderSuccess = document.getElementById('orderSuccess');
+
+            let currentButton = '';
+
+            window.openOrderPopup = function(buttonName) {
+                currentButton = buttonName || 'Не указана';
+                orderForm.style.display = 'block';
+                orderSuccess.classList.remove('active');
+                orderPopup.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                document.querySelectorAll('input[name="contactMethod"]').forEach(r => r.checked = false);
+                document.getElementById('orderName').value = '';
+                document.getElementById('orderPhone').value = '';
+            };
+
+            function closeOrderPopup() { orderPopup.classList.remove('active'); document.body.style.overflow = ''; }
+
+            orderPopupClose.addEventListener('click', closeOrderPopup);
+            orderPopup.addEventListener('click', function(e) { if (e.target === orderPopup) closeOrderPopup(); });
+            document.addEventListener('keydown', function(e) { if (orderPopup.classList.contains('active') && e.key === 'Escape') closeOrderPopup(); });
+
+            async function sendToVK(name, phone, method, button) {
+                try {
+                    const response = await fetch(SERVER_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, phone, method, button })
+                    });
+                    const data = await response.json();
+                    if (data.status === 'ok') { console.log('✅ Заявка отправлена'); return true; }
+                    else { console.error('Ошибка сервера:', data.message); return false; }
+                } catch (error) { console.error('Сетевая ошибка:', error); return false; }
+            }
+
+            orderForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const nameInput = document.getElementById('orderName');
+                const phoneInputEl = document.getElementById('orderPhone');
+                const submitBtn = orderForm.querySelector('.btn');
+                
+                const name = nameInput.value.trim();
+                const phone = phoneInputEl.value.trim();
+                const methodRadio = document.querySelector('input[name="contactMethod"]:checked');
+                const method = methodRadio ? methodRadio.value : 'Не указан';
+                
+                if (!name || !phone) return;
+                
+                submitBtn.textContent = 'Отправка...';
+                submitBtn.style.pointerEvents = 'none';
+                
+                await sendToVK(name, phone, method, currentButton);
+                
+                orderForm.style.display = 'none';
+                orderSuccess.classList.add('active');
+                
+                submitBtn.textContent = 'Отправить';
+                submitBtn.style.pointerEvents = 'auto';
+                
+                setTimeout(function() {
+                    closeOrderPopup();
+                    nameInput.value = '';
+                    phoneInputEl.value = '';
+                }, 3000);
+            });
         })();
     </script>
 </body>
