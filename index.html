@@ -1128,7 +1128,7 @@
                 <li><a href="#partners">Партнеры</a></li><li><a href="#contact">Контакты</a></li>
             </ul>
             <div class="header-right">
-                <div class="phone"><a href="tel:+78129258856"><i class="fas fa-phone"></i> +7 (812) 925 88-56</a></div>
+                <div class="phone"><a href="tel:+78129288856"><i class="fas fa-phone"></i> +7 (812) 928 88-56</a></div>
                 <a href="javascript:void(0)" class="header-btn" onclick="openOrderPopup('Заказать')">Заказать</a>
             </div>
         </div>
@@ -1263,7 +1263,7 @@
 
     <footer><div class="container"><div class="footer-container"><div><div class="footer-logo">Мебель и Стиль</div><p>Комплексная меблировка квартир в Санкт-Петербурге и области. Полная меблировка студий и 1-комнатных квартир под ключ. На рынке с 2015 года.</p></div>
     <div><h3 style="color:white;margin-bottom:20px;">Разделы</h3><ul><li><a href="#about">О нас</a></li><li><a href="#steps">Этапы</a></li><li><a href="#packages">Пакеты</a></li><li><a href="#portfolio">Проекты</a></li><li><a href="#styles">Стили</a></li><li><a href="#partners">Партнёры</a></li></ul></div>
-    <div><h3 style="color:white;margin-bottom:20px;">Контакты</h3><ul><li><i class="fas fa-phone" style="margin-right:10px;"></i>+7 (812) 925 88-56</li><li><i class="fas fa-envelope" style="margin-right:10px;"></i>brwmebelspb@yandex.ru</li><li><i class="fas fa-map-marker-alt" style="margin-right:10px;"></i>г. Кудрово, ул. Промышленная, д.3 к.3, этаж 2</li></ul></div></div><div class="copyright">© 2026 Мебель и Стиль. Все права защищены.</div></div></footer>
+    <div><h3 style="color:white;margin-bottom:20px;">Контакты</h3><ul><li><i class="fas fa-phone" style="margin-right:10px;"></i>+7 (812) 928 88-56</li><li><i class="fas fa-envelope" style="margin-right:10px;"></i>brwmebelspb@yandex.ru</li><li><i class="fas fa-map-marker-alt" style="margin-right:10px;"></i>г. Кудрово, ул. Промышленная, д.3 к.3, этаж 2</li></ul></div></div><div class="copyright">© 2026 Мебель и Стиль. Все права защищены.</div></div></footer>
 
     <script>
         (function() {
@@ -1344,7 +1344,8 @@
                 { id: 4, title: "Кухня №1", description: "Современная кухня с островом. Фасады МДФ, столешница из искусственного камня, встроенная техника.", tags: ["Кухня", "Современный стиль"], category: "kitchen", gallery: getKitchenGallery(1, 400, 403, "jpg") },
                 { id: 5, title: "Кухня №2", description: "Светлая кухня с продуманной эргономикой. Удобное хранение и качественная бытовая техника.", tags: ["Кухня", "Светлые тона"], category: "kitchen", gallery: getKitchenGallery(2, 500, 509, "jpg") },
                 { id: 6, title: "Кухня №3", description: "Лаконичная современная кухня. Фасады МДФ, столешница из искусственного камня.", tags: ["Кухня", "Современный стиль"], category: "kitchen", gallery: getKitchenGallery(3, 600, 612, "jpg") },
-                { id: 7, title: "Кухня №4", description: "Кухня в светлой гамме. Эргономичная планировка и вместительные системы хранения.", tags: ["Кухня", "Светлые тона"], category: "kitchen", gallery: getKitchenGallery(4, 700, 706, "webp") }
+                { id: 7, title: "Кухня №4", description: "Кухня в светлой гамме. Эргономичная планировка и вместительные системы хранения.", tags: ["Кухня", "Светлые тона"], category: "kitchen", gallery: getKitchenGallery(4, 700, 706, "webp") },
+                { id: 9, title: "Кухня №5", description: "Современная кухня с продуманной эргономикой. Качественные материалы и удобное хранение.", tags: ["Кухня", "Современный стиль"], category: "kitchen", gallery: getKitchenGallery(5, 800, 810, "jpg") }
             ];
 
             const wardrobeProjects = [
@@ -1412,18 +1413,15 @@
                     let value = this.value.replace(/[^\d]/g, '');
                     const cursorPos = this.selectionStart;
                     
-                    // Находим индекс цифры перед курсором
                     let digitsBeforeCursor = 0;
                     for (let i = 0; i < cursorPos; i++) {
                         if (/[0-9]/.test(this.value[i])) digitsBeforeCursor++;
                     }
                     
-                    // Удаляем цифру перед курсором
                     if (digitsBeforeCursor > 0) {
                         value = value.slice(0, digitsBeforeCursor - 1) + value.slice(digitsBeforeCursor);
                     }
                     
-                    // Форматируем заново
                     let formatted = '+7';
                     if (value.length > 1) formatted += ' (' + value.slice(1, 4);
                     if (value.length >= 4) formatted += ') ' + value.slice(4, 7);
@@ -1432,7 +1430,6 @@
                     
                     this.value = formatted;
                     
-                    // Ставим курсор на правильную позицию
                     let targetPos = 2;
                     if (digitsBeforeCursor > 1) targetPos = 4;
                     if (digitsBeforeCursor > 4) targetPos = 9;
