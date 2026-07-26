@@ -778,7 +778,11 @@
         }
 
         body.dark-theme .modal-desc { color: var(--text-secondary-dark); border-bottom-color: var(--border-dark); }
-        .modal-gallery { column-count: 3; column-gap: 20px; }
+
+        .modal-gallery { 
+            column-count: 3;
+            column-gap: 20px;
+        }
 
         .modal-gallery img {
             width: 100%;
@@ -795,7 +799,6 @@
         body.dark-theme .modal-gallery img { border-color: var(--border-dark); }
         .modal-gallery img:hover { transform: scale(1.02); border-color: var(--accent); }
 
-        /* Кнопка "Показать ещё" в галерее */
         .modal-load-more {
             text-align: center;
             margin-top: 20px;
@@ -1348,7 +1351,7 @@
             function getWardrobeGallery(projectNum, start, end, ext) { let photos = []; for (let i = start; i <= end; i++) photos.push(`image/Шкафы/проект${projectNum}/${i}.${ext}`); return photos; }
 
             const fullProjects = [
-                { id: 11, title: "1-к квартира ЖК «Октябрьская набережная»", description: "Меблировка из наличия. 35 м². Сдача объекта за 5 дней.", tags: ["35 м²", "1-комнатная", "Сдача за 5 дней"], category: "full", gallery: getGallery("1 к кв жк октябрьская набережная", 300, 312, "jpg") },
+                { id: 11, title: "1-к квартира ЖК «Октябрьская набережная»", description: "Меблировка из наличия. 35 м². Сдача объекта за 5 дней.", tags: ["35 м²", "1-комнатная", "Сдача за 5 дней"], category: "full", gallery: getGallery("1 к кв жк октябрьская набережная", 300, 310, "jpg") },
                 { id: 10, title: "Студия ЖК «Морская Миля»", description: "Современное решение с угловой кухней, диваном, системой хранения и письменным столом.", tags: ["Студия", "Полная меблировка"], category: "full", gallery: getGallery("студия морская миля", 900, 953, "jpg") },
                 { id: 3, title: "Студия ЖК «Универ Сити»", description: "Комплектация 26,2 м². Функциональная планировка с кухонной зоной, диваном и местом для хранения.", tags: ["26,2 м²", "Студия"], category: "full", gallery: (() => { let p = []; for (let i = 100; i <= 119; i++) p.push(`image/полная меблировка/студия сенат/${i}.${i===100?'jfif':'jpeg'}`); return p; })() },
                 { id: 2, title: "1-к квартира ЖК «Универ Сити»", description: "Комплектация 33,71 м². Кухня-гостиная, отдельная спальня и вместительная прихожая.", tags: ["33,71 м²", "1-комнатная"], category: "full", gallery: getGallery("1 к кв универ сити", 1, 18, "jpeg") },
@@ -1373,7 +1376,6 @@
             const modal = document.getElementById('galleryModal'), modalTitle = document.getElementById('modalTitle'), modalDesc = document.getElementById('modalDesc'), modalGallery = document.getElementById('modalGallery'), modalClose = document.getElementById('modalClose');
             const modalLoadMore = document.getElementById('modalLoadMore'), loadMoreBtn = document.getElementById('loadMoreBtn');
             
-            // Для пагинации
             let currentGallery = [];
             let currentPage = 0;
             const PER_PAGE = 12;
@@ -1387,12 +1389,11 @@
                     let img = document.createElement('img'); 
                     img.src = getMobileSrc(src); 
                     img.alt = modalTitle.textContent;
-                    img.loading = i < 6 ? 'eager' : 'lazy';
+                    img.loading = 'lazy';
                     img.onerror = function() { this.src = src; };
                     modalGallery.appendChild(img);
                 }
                 
-                // Показываем/скрываем кнопку "Показать ещё"
                 if (end < gallery.length) {
                     modalLoadMore.style.display = 'block';
                 } else {
