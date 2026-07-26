@@ -795,6 +795,16 @@
         body.dark-theme .modal-gallery img { border-color: var(--border-dark); }
         .modal-gallery img:hover { transform: scale(1.02); border-color: var(--accent); }
 
+        /* Кнопка "Показать ещё" в галерее */
+        .modal-load-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .modal-load-more .btn {
+            font-size: 0.85rem;
+            padding: 12px 28px;
+        }
+
         .partners { background-color: var(--light); overflow: hidden; }
         body.dark-theme .partners { background-color: var(--bg-dark); }
 
@@ -1186,7 +1196,7 @@
     </div>
     <div class="portfolio-grid" id="portfolioGrid"></div></div></section>
 
-    <div class="modal" id="galleryModal"><div class="modal-content"><span class="modal-close" id="modalClose">&times;</span><h3 class="modal-title" id="modalTitle"></h3><p class="modal-desc" id="modalDesc"></p><div class="modal-gallery" id="modalGallery"></div></div></div>
+    <div class="modal" id="galleryModal"><div class="modal-content"><span class="modal-close" id="modalClose">&times;</span><h3 class="modal-title" id="modalTitle"></h3><p class="modal-desc" id="modalDesc"></p><div class="modal-gallery" id="modalGallery"></div><div class="modal-load-more" id="modalLoadMore" style="display:none;"><button class="btn" id="loadMoreBtn">Показать ещё</button></div></div></div>
 
     <section class="styles" id="styles"><div class="container"><div class="section-title"><h2>Стилевые направления</h2><p>Единая концепция помогает создать гармоничное пространство, где все элементы дополняют друг друга.</p></div>
     <div class="styles-container"><div class="style-tabs">
@@ -1361,52 +1371,52 @@
             const allProjects = [...fullProjects, ...kitchenProjects, ...wardrobeProjects];
             const portfolioGridEl = document.getElementById('portfolioGrid');
             const modal = document.getElementById('galleryModal'), modalTitle = document.getElementById('modalTitle'), modalDesc = document.getElementById('modalDesc'), modalGallery = document.getElementById('modalGallery'), modalClose = document.getElementById('modalClose');
+            const modalLoadMore = document.getElementById('modalLoadMore'), loadMoreBtn = document.getElementById('loadMoreBtn');
+            
+            // Для пагинации
+            let currentGallery = [];
+            let currentPage = 0;
+            const PER_PAGE = 12;
+            
+            function renderGalleryPage(gallery, page) {
+                const start = page * PER_PAGE;
+                const end = Math.min(start + PER_PAGE, gallery.length);
+                
+                for (let i = start; i < end; i++) {
+                    const src = gallery[i];
+                    let img = document.createElement('img'); 
+                    img.src = getMobileSrc(src); 
+                    img.alt = modalTitle.textContent;
+                    img.loading = i < 6 ? 'eager' : 'lazy';
+                    img.onerror = function() { this.src = src; };
+                    modalGallery.appendChild(img);
+                }
+                
+                // Показываем/скрываем кнопку "Показать ещё"
+                if (end < gallery.length) {
+                    modalLoadMore.style.display = 'block';
+                } else {
+                    modalLoadMore.style.display = 'none';
+                }
+            }
             
             function openModal(p) { 
                 modalTitle.textContent = p.title; 
                 modalDesc.textContent = p.description; 
                 modalGallery.innerHTML = '';
+                currentGallery = p.gallery;
+                currentPage = 0;
                 
-                // Показываем прелоадер
-                modalGallery.style.opacity = '0.3';
-                modalGallery.style.transition = 'opacity 0.3s';
-                
-                let loadedCount = 0;
-                const totalImages = p.gallery.length;
-                
-                p.gallery.forEach((src, index) => { 
-                    let i = document.createElement('img'); 
-                    i.src = getMobileSrc(src); 
-                    i.alt = p.title;
-                    // Убираем loading="lazy" для первых 6 фото
-                    if (index < 6) i.loading = 'eager';
-                    else i.loading = 'lazy';
-                    
-                    i.onload = function() {
-                        loadedCount++;
-                        if (loadedCount >= Math.min(totalImages, 6)) {
-                            modalGallery.style.opacity = '1';
-                        }
-                    };
-                    
-                    i.onerror = function() { 
-                        this.src = src;
-                        loadedCount++;
-                        if (loadedCount >= Math.min(totalImages, 6)) {
-                            modalGallery.style.opacity = '1';
-                        }
-                    }; 
-                    modalGallery.appendChild(i); 
-                }); 
-                
-                // Страховка: через 3 секунды всё равно показываем
-                setTimeout(() => {
-                    modalGallery.style.opacity = '1';
-                }, 3000);
+                renderGalleryPage(currentGallery, 0);
                 
                 modal.classList.add('active'); 
                 document.body.style.overflow = 'hidden'; 
             }
+            
+            loadMoreBtn.addEventListener('click', function() {
+                currentPage++;
+                renderGalleryPage(currentGallery, currentPage);
+            });
             
             function closeModal() { modal.classList.remove('active'); document.body.style.overflow = ''; }
             modalClose.addEventListener('click', closeModal); 
