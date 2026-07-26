@@ -1363,13 +1363,49 @@
             const modal = document.getElementById('galleryModal'), modalTitle = document.getElementById('modalTitle'), modalDesc = document.getElementById('modalDesc'), modalGallery = document.getElementById('modalGallery'), modalClose = document.getElementById('modalClose');
             
             function openModal(p) { 
-                modalTitle.textContent = p.title; modalDesc.textContent = p.description; modalGallery.innerHTML = ''; 
-                p.gallery.forEach(src => { 
-                    let i = document.createElement('img'); i.src = getMobileSrc(src); i.alt = p.title; i.loading = 'lazy'; 
-                    i.onerror = function() { this.src = src; }; 
+                modalTitle.textContent = p.title; 
+                modalDesc.textContent = p.description; 
+                modalGallery.innerHTML = '';
+                
+                // Показываем прелоадер
+                modalGallery.style.opacity = '0.3';
+                modalGallery.style.transition = 'opacity 0.3s';
+                
+                let loadedCount = 0;
+                const totalImages = p.gallery.length;
+                
+                p.gallery.forEach((src, index) => { 
+                    let i = document.createElement('img'); 
+                    i.src = getMobileSrc(src); 
+                    i.alt = p.title;
+                    // Убираем loading="lazy" для первых 6 фото
+                    if (index < 6) i.loading = 'eager';
+                    else i.loading = 'lazy';
+                    
+                    i.onload = function() {
+                        loadedCount++;
+                        if (loadedCount >= Math.min(totalImages, 6)) {
+                            modalGallery.style.opacity = '1';
+                        }
+                    };
+                    
+                    i.onerror = function() { 
+                        this.src = src;
+                        loadedCount++;
+                        if (loadedCount >= Math.min(totalImages, 6)) {
+                            modalGallery.style.opacity = '1';
+                        }
+                    }; 
                     modalGallery.appendChild(i); 
                 }); 
-                modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
+                
+                // Страховка: через 3 секунды всё равно показываем
+                setTimeout(() => {
+                    modalGallery.style.opacity = '1';
+                }, 3000);
+                
+                modal.classList.add('active'); 
+                document.body.style.overflow = 'hidden'; 
             }
             
             function closeModal() { modal.classList.remove('active'); document.body.style.overflow = ''; }
