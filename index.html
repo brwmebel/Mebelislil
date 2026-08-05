@@ -1528,7 +1528,7 @@
                     const response = await fetch(SERVER_URL, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name, phone, method, button })
+                        body: JSON.stringify({ name, phone, method, button, site: 'mebel-ilstil', type: 'Заявка' })
                     });
                     const data = await response.json();
                     if (data.status === 'ok') { console.log('✅ Заявка отправлена'); return true; }
